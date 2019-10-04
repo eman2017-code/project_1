@@ -1,6 +1,10 @@
 body {
-	margin: 3%;
-	background-color: #A6A6A6;
+	margin: 2%;
+	/*background-color: #A6A6A6;*/
+	background-image: url('https://media.giphy.com/media/3o7aCTfyhYawdOXcFW/giphy.gif');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
 }
 
 h1 {
@@ -10,11 +14,7 @@ h1 {
 	padding: 30px;
 }
 
-div {
-	background-color: yellow;
-}
-
-button {
+.onePlayerSelection, .twoPlayerSelection {
 	height: 100px;
 	width: 200px;
 	margin-right: auto;
@@ -23,3 +23,97 @@ button {
 	display: block;
 	margin-top: 3%;
 }
+
+.dropDown {
+	position: relative;
+	display: inline-block;
+	display: none;
+}
+
+.dropButton {
+	background-color: #324759;
+	color: #FFFFFF;
+	padding: 16px;
+  	font-size: 16px;
+  	border: none;
+  	text-align: center;
+  	width: 300px;
+}
+
+.dropDownContent {
+	display: none;
+	position: absolute;
+	background-color: #F2F2F2;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  	z-index: 1;
+}
+
+.dropDownContent button{
+	color: black;
+	padding: 12px 16px;
+	text-decoration: underline;
+	display: block;
+}
+
+.dropDownContent button:hover {
+	color: #F2F2F2;
+	background-color: #000;
+}
+
+.dropDown:hover .dropDownContent {
+	display: block;
+}
+
+.dropDown:hover .dropButton {
+	background-color: #730D15;
+}
+
+#easyButton {
+	width: 300px;
+}
+#mediumButton {
+	width: 300px;
+}
+#hardButton {
+	width: 300px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
