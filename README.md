@@ -29,6 +29,7 @@
 - The leaderboard section that shows how they performed against other players that have played the game
 - Be able to have the user move their character around and have the words try and “attack” them 
 
-[https://wireframe.cc/q0oGkp]
-[https://wireframe.cc/BU7Nro]
-[https://wireframe.cc/33QoDX]
+### WIREFRAMES:
+https://wireframe.cc/q0oGkp
+https://wireframe.cc/BU7Nro
+https://wireframe.cc/33QoDX
