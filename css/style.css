@@ -1,12 +1,3 @@
-.clearfix:after {
-    visibility: hidden;
-    display: block;
-    font-size: 0;
-    content: " ";
-    clear: both;
-    height: 0;
-}
-
 body {
 	margin: 2%;
 	background-image: url('https://media.giphy.com/media/3o7aCTfyhYawdOXcFW/giphy.gif');
@@ -120,6 +111,16 @@ h5 {
 	width: 100%;
 	height: 500px;
 	border: 3px solid black;
+}
+
+.startButton {
+	height: 100px;
+	width: 200px;
+	margin-right: auto;
+	margin-left: auto;
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+	display: block;
+	margin-top: 15%;
 }
 
 

@@ -1,9 +1,10 @@
 //create game object that will hold the data for the players
 const game = {
-	level: 1, 
+	round: 1, 
+	lives: 5,
 	//array of words for levels 
 	words: [
-		[], // level 1
+		['hello', 'goodbye', 'evening', 'morning', 'afternoon'], // level 1
 		[], // level 2
 		[], // level 3
 		[], // level 4
@@ -29,24 +30,19 @@ const game = {
 		//collect the level selected and chosen gamertag of the user
 		const $gamerTag = $('#input-box').val().toUpperCase();
 		const $gamerDifficulty = $('#difficultyButton').val().toUpperCase();
-		// const $gamerMedium = $('#mediumButton').val().toUpperCase();
-		// const $gamerHard = $('#hardButton').val().toUpperCase();
 		// console.log($gamerTag);
-		console.log($gamerDifficulty);
+		// console.log($gamerDifficulty);
 		const $h5 = $('h5');
 		const $h4 = $('h4');
 		$h5.html('Welcome: ' + $gamerTag);
 		$h4.html('Your Selected Difficulty: ' + $gamerDifficulty);
-		// console.log($h5);
-		// if($gamerDifficulty == "EASY" || $gamerDifficulty == "MEDIUM" || $gamerDifficulty == "HARD") {
-		// 	// console.log('this is a valid response');
-		// 	return true;
-		// } else {
-		// 	// console.log('this is not a valid repsonse');
-		// 	// alert('Enter a valid selection')
-		// 	return false;
-		// }
+		$('form').hide();
+		$('body').css('background-image', 'none')
+		$('body').css('background-color', '#324759');
+		$('.gameSection').show();
 	},
+
+
 
 }
 
@@ -59,22 +55,16 @@ $('form').on('submit', (e) => {
 	e.preventDefault();
 	// invoke collect function to show the user information
 	game.collectPlayerInfo();
-	$('form').hide();
-	$('body').css('background-image', 'none')
-	$('body').css('background-color', '#324759');
-	$('.gameSection').show();
-	// console.log(e.currentTarget);
-	// console.log(e.target);
 });
 
-// when the user clicks on the 1 player or 2 players button, both the buttons will dissapear and the user will select the difficulty
-// that they would like to play at 
+// user will be able to choose one or two players
 $('.onePlayerSelection').on('click', () => {
 	$('.onePlayerSelection').hide();
 	$('.twoPlayerSelection').hide();
 	$('.createProfile').css('display', 'block');
 });
 
+// user will be able to choose one or two players
 $('.twoPlayerSelection').on('click', () => {
 	$('.onePlayerSelection').hide();
 	$('.twoPlayerSelection').hide();
