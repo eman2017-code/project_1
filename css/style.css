@@ -1,0 +1,25 @@
+body {
+	margin: 3%;
+	background-color: #A6A6A6;
+}
+
+h1 {
+	text-align: center;
+	background-color: #730D15;
+	color: #FFFFFF;
+	padding: 30px;
+}
+
+div {
+	background-color: yellow;
+}
+
+button {
+	height: 100px;
+	width: 200px;
+	margin-right: auto;
+	margin-left: auto;
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+	display: block;
+	margin-top: 3%;
+}
