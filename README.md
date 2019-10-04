@@ -20,12 +20,15 @@
 - See the amount of the level that they have left to go 
 - This will be displayed with the progress bar at the bottom of the screen
 - See the amount of lives that they have left in the game 
-- See top right of the screen
+  - See top right of the screen
 - The user will be able to see how many rounds they survived
 
-# EXTRA THINGS THAT I WOULD LIKE TO INCLUDE
+# STRETCH GOALS
 - Have the user choose a character that represents them and as they type the words, a laser shoots out towards the word that -   they are typing and explodes when they have typed the word correctly
 - Show the typing speed of the user
 - The leaderboard section that shows how they performed against other players that have played the game
 - Be able to have the user move their character around and have the words try and “attack” them 
 
+[https://wireframe.cc/q0oGkp]
+[https://wireframe.cc/BU7Nro]
+[https://wireframe.cc/33QoDX]
