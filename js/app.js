@@ -27,16 +27,18 @@ const game = {
 
 	collectPlayerInfo() {
 		//collect the level selected and chosen gamertag of the user
-		const $gamerTag = $('#input-box').val();
-		const $gamerEasy = $('#easyButton').val();
-		const $gamerMedium = $('#mediumButton').val();
-		const $gamerHard = $('#hardButton').val();
+		const $gamerTag = $('#input-box').val().toUpperCase();
+		const $gamerDifficulty = $('#difficultyButton').val().toUpperCase();
+		// const $gamerMedium = $('#mediumButton').val().toUpperCase();
+		// const $gamerHard = $('#hardButton').val().toUpperCase();
 		console.log($gamerTag);
-		console.log($gamerEasy);
-		console.log($gamerMedium);
-		console.log($gamerHard);
+		console.log($gamerDifficulty);
+		if($gamerDifficulty == "EASY" || $gamerDifficulty == "MEDIUM" || $gamerDifficulty == "HARD") {
+			console.log('this is a valid response');
+		} else {
+			console.log('this is not a valid repsonse');
+		}
 	},
-
 
 }
 
@@ -47,7 +49,12 @@ const game = {
 //collecting user info
 $('form').on('submit', (e) => {
 	e.preventDefault();
+	// invoke collect function to show the user information
 	game.collectPlayerInfo();
+	$('form').hide();
+	$('body').css('background-image', 'none')
+	$('body').css('background-color', '#324759');
+	$('.gameSection').show();
 	// console.log(e.currentTarget);
 	// console.log(e.target);
 });
