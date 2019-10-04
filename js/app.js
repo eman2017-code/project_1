@@ -18,10 +18,12 @@ $('.onePlayerSelection').on('click', () => {
 	$('.onePlayerSelection').hide();
 	$('.twoPlayerSelection').hide();
 	$('.dropDown').show();
+	$('.createProfile').show();
 });
 
 $('.twoPlayerSelection').on('click', () => {
 	$('.onePlayerSelection').hide();
 	$('.twoPlayerSelection').hide();
 	$('.dropDown').show();
+	$('.createProfile').show();
 });
