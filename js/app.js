@@ -15,7 +15,7 @@ const game = {
 		['charger', 'liquid', 'keyboard', 'shoe', 'shoelace', 'belt', 'closet', 'inside', 'outside', 'exciting',
 		'interesting', 'wow', 'according'], // level 4
 
-		['martin', 'specialist', 'bioinformatics', 'biology', 'chemistry', 'popcorn', 'potatoe', 'worse'
+		['martin', 'specialist', 'bioinformatics', 'biology', 'chemistry', 'popcorn', 'potatoe', 'worse',
 		'oblivious', 'young', 'innocent', 'because', 'because', 'constitute'], // level 5
 
 		['johnny', 'abject', 'aberration', 'abnegation', 'accost',  'acceration', 'alias', 'smirk', 'interesting', 
