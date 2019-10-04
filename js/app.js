@@ -31,13 +31,21 @@ const game = {
 		const $gamerDifficulty = $('#difficultyButton').val().toUpperCase();
 		// const $gamerMedium = $('#mediumButton').val().toUpperCase();
 		// const $gamerHard = $('#hardButton').val().toUpperCase();
-		console.log($gamerTag);
+		// console.log($gamerTag);
 		console.log($gamerDifficulty);
-		if($gamerDifficulty == "EASY" || $gamerDifficulty == "MEDIUM" || $gamerDifficulty == "HARD") {
-			console.log('this is a valid response');
-		} else {
-			console.log('this is not a valid repsonse');
-		}
+		const $h5 = $('h5');
+		const $h4 = $('h4');
+		$h5.html('Welcome: ' + $gamerTag);
+		$h4.html('Your Selected Difficulty: ' + $gamerDifficulty);
+		// console.log($h5);
+		// if($gamerDifficulty == "EASY" || $gamerDifficulty == "MEDIUM" || $gamerDifficulty == "HARD") {
+		// 	// console.log('this is a valid response');
+		// 	return true;
+		// } else {
+		// 	// console.log('this is not a valid repsonse');
+		// 	// alert('Enter a valid selection')
+		// 	return false;
+		// }
 	},
 
 }
