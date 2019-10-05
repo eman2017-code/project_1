@@ -2,7 +2,7 @@
 const game = {
 	round: 1, 
 	lives: 5,
-	timer: 0,
+	timer: null,
 	//array of words for levels 
 	words: [
 		['hello', 'goodbye', 'evening', 'morning', 'afternoon'], // level 1
@@ -22,7 +22,8 @@ const game = {
 		'divergents', 'hunger', 'games', 'key', 'piano', 'cup', 'morning', 'afternoon', 'tissue', 'flask', 'fire',
 		'cord', 'floor', 'wood'], // level 6
 
-		['headphones', 'earjack', ''], // level 7
+		['headphones', 'earjack', 'heater', 'cooler', 'cologne', 'watch', 'apple', 'android', 'adidas', 'nike', 
+		'nike', 'backpack', 'lipstick', 'exam', 'test', 'spider', 'arachnid'], // level 7
 		[], // level 8
 		[], // level 9
 		[], // level 10
@@ -55,39 +56,32 @@ const game = {
 	},
 
 	startGame() {
-		// when user clicks on the start button, the first word of the first array should appear on the screen and float
-		// from right to left
-		console.log(this.words[0]);
-		// the user will start to type the word as it appears on the screen
-		// when user hits enter, check to see if userInput == "the word that was floating across the screen"
-			// if userInput == "the word that was floating across the screen" ... the word will dissapaear and their score 
-			// will go up
-			// else if userInput !== "the word that was floating across the screen" the userInput box will empty out..
-			// the word will continue to float... and the user will need to re-type the word to start and make it 
-			// dissapear once again 
-			const $timer = $('.timer');
-			const interval = setInterval(() => {
-				if(this.time === 100) {
-					clearInterval(interval);
-					this.round++;
-				} else {
-					this.time++;
-				}
+		// when user clicks the start button the first array of words will appear on the screen
+		// floating from right to left
+		// loop through the first array randomly
 
-				$timer.text(`Timer: ${this.time}s`)
-			}, 1000);
+		// the timer will start to count from 0 up
 
-		const $p1 = $('<p></p>');
-		console.log($p1);
-		// the round number will appear
-		const $p2 = $('<p></p>');
-		console.log($p2);
-		// the amount of lives will be shown
-		const $p3 = $('<p></p>');
-		console.log($p3);
-		// the amount of words that have been typed will be shown
-		const $p4 = $('<p></p>');
-		console.log($p4);
+		// the user will have to type the the words before they hit the left side of the screen
+		// if user does not type word fast enough, say 'game over, try again'
+
+		// if user can selected 2 players, after the first user has not failed to complete the first
+		// round, it will be player 2's turn and same situation will be so 
+
+		// if user is able to type all the words fast enough, the round will be added by one
+		// and next array of words will appear, looping randomly just like the first one
+
+		// if user 2 fails to complete a round, bring them to the stats page, where it will show
+		// the amount of words that each player has typed
+			// if user1 has more than user2, user1 wins, if user2 has more than user1, user2 wins
+
+		// there will be 20 levels that they user can complete
+			// each adding more words and bigger words than the next
+
+		// if user1 and user2 both complete all 20 levels without failing,
+		// bring them to the states page, if user1 has completed all 20 levels in less time than
+		// user2, user1 wins... if user2 has completed all 20 levels in less time than use1,
+		// user2 winss
 
 	},
 }
