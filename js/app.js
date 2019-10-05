@@ -3,9 +3,10 @@ const game = {
 	round: 1, 
 	lives: 5,
 	timer: null,
+	score: 0,
 	//array of words for levels 
 	words: [
-		['hello', 'goodbye', 'evening', 'morning', 'afternoon'], // level 1
+		['hello', 'goodbye', 'evening', 'morning', 'afternoon', 'tamagotchi'], // level 1
 
 		['coding', 'amazing', 'wonderful', 'immaculate', 'computer', 'general', 'assembly', 'crazy'], // level 2
 
@@ -24,10 +25,13 @@ const game = {
 
 		['headphones', 'earjack', 'heater', 'cooler', 'cologne', 'watch', 'apple', 'android', 'adidas', 'nike', 
 		'nike', 'backpack', 'lipstick', 'exam', 'test', 'spider', 'arachnid', 'wow', 'attack', 'warning', 'hat', 'snow', 'examine', 'sneaker', 'cover', 'candle', 'fire'], // level 7
+
 		[ 'abject', 'aberration', 'abnegation', 'accost',  'acceration', 'alias', 'smirk', 'interesting', 
 		'divergents', 'hunger', 'games', 'key', 'piano', 'cup','ocean', 'prestidigitation', 'camera', 'recording', 'precipitation', 'interesting', 'execution', 'socks'], // level 8
-		['underwear', 'foot', 'portrait', 'teeth', 'chin', 'book', 'books', 'deorderant', 'brush', 'white board', 'chalk board'], // level 9
-		[], // level 10
+
+		['underwear', 'foot', 'portrait', 'teeth', 'chin', 'book', 'books', 'deorderant', 'brush', 'white board', 'chalk board', 'receive', 'port', 'deck', 'ship', 'acknowledgement', 'acknowledge', 'realm', 'interesting', 'pound',' particular', 'jump', 'caresses', 'suburban', 'city'], // level 9
+
+		['liquid', 'solid', 'chicago', 'obstinate', 'hardest', 'softest', 'vocabulary', 'apathetic', 'arbitrary', 'arrogate'], // level 10
 		// [], // level 12
 		// [], // level 13
 		// [], // level 13
@@ -66,21 +70,6 @@ const game = {
 				$('.userInput').show();
 			}
 
-			// $("#getvalue").on('keyup', function (e) {
-			// 	if (e.keyCode == 13) {
-			// 	    var inputValue=$('#getvalue').val();
-			// $('.wordsscreen span').each(function (){
-   //          	if(inputValue === $(this).text()){
-   //          		$('#getvalue').val('');
-   //          		$(this).remove();
-   //          		$('.score-board b').text(score+=1);
-   //          	} else{
-			// 		$('.error').show().delay(1000).fadeOut();
-			// 	}
-			// });
-			// 	}
-			// });
-
 		// keycode for 'enter' == 13;
 			// once user has typed out word, and pressing enter and it matches
 			// if their keycode == '13' the word will dissapear
@@ -104,6 +93,10 @@ const game = {
 		// the user will be able to see which round they are on
 		$rounds = $('.rounds');
 		$rounds.html('Round: ' + this.round);
+
+		// the user will be able to see their score
+		$score = $('.score');
+		$score.html('Score: ' + this.score);
 
 		// the user will have to type the the words before they hit the left side of the screen
 		// if user does not type word fast enough, say 'game over, try again'
