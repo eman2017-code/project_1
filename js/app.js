@@ -64,6 +64,8 @@ const game = {
 		// the timer will start to count from 0 up
 		const interval = setInterval(() => {
 			this.timer ++;
+			$timer = $('.timer');
+			$timer.html('Timer: ' + this.timer)
 			console.log(this.timer);
 		}, 1000);
 
