@@ -23,20 +23,21 @@ const game = {
 		'cord', 'floor', 'wood'], // level 6
 
 		['headphones', 'earjack', 'heater', 'cooler', 'cologne', 'watch', 'apple', 'android', 'adidas', 'nike', 
-		'nike', 'backpack', 'lipstick', 'exam', 'test', 'spider', 'arachnid'], // level 7
-		[], // level 8
-		[], // level 9
+		'nike', 'backpack', 'lipstick', 'exam', 'test', 'spider', 'arachnid', 'wow', 'attack', 'warning', 'hat', 'snow', 'examine', 'sneaker', 'cover', 'candle', 'fire'], // level 7
+		[ 'abject', 'aberration', 'abnegation', 'accost',  'acceration', 'alias', 'smirk', 'interesting', 
+		'divergents', 'hunger', 'games', 'key', 'piano', 'cup','ocean', 'prestidigitation', 'camera', 'recording', 'precipitation', 'interesting', 'execution', 'socks'], // level 8
+		['underwear', 'foot', 'portrait', 'teeth', 'chin', 'book', 'books', 'deorderant', 'brush', 'white board', 'chalk board'], // level 9
 		[], // level 10
-		[], // level 12
-		[], // level 13
-		[], // level 13
-		[], // level 14
-		[], // level 15
-		[], // level 16
-		[], // level 17
-		[], // level 18
-		[], // level 19
-		[], // level 20
+		// [], // level 12
+		// [], // level 13
+		// [], // level 13
+		// [], // level 14
+		// [], // level 15
+		// [], // level 16
+		// [], // level 17
+		// [], // level 18
+		// [], // level 19
+		// [], // level 20
 	],
 
 	collectPlayerInfo() {
@@ -59,12 +60,30 @@ const game = {
 		// when user clicks the start button the first array of words will appear on the screen
 		// floating from right to left
 		// loop through the first array randomly
-		for(let i = 0; i < this.words[0].length; i++) {
-			console.log(this.words[0][i]);
-			$('.floatingWords').html('hello');
-		}
+			for(let i = 0; i < this.words[0].length; i++) {
+				console.log(this.words[0][i]);
+				// $('.floatingWords').html('hello');
+				$('.userInput').show();
+			}
+
+			// $("#getvalue").on('keyup', function (e) {
+			// 	if (e.keyCode == 13) {
+			// 	    var inputValue=$('#getvalue').val();
+			// $('.wordsscreen span').each(function (){
+   //          	if(inputValue === $(this).text()){
+   //          		$('#getvalue').val('');
+   //          		$(this).remove();
+   //          		$('.score-board b').text(score+=1);
+   //          	} else{
+			// 		$('.error').show().delay(1000).fadeOut();
+			// 	}
+			// });
+			// 	}
+			// });
 
 		// keycode for 'enter' == 13;
+			// once user has typed out word, and pressing enter and it matches
+			// if their keycode == '13' the word will dissapear
 
 
 		// the timer will start to count from 0 up
@@ -140,6 +159,7 @@ $('.twoPlayerSelection').on('click', () => {
 $('.startButton').on('click', () => {
 	game.startGame();
 	$('.startButton').hide();
+	// $('.userInput').show();
 });
 
 

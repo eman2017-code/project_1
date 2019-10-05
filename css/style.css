@@ -152,6 +152,19 @@ h5 {
 	margin-top: 15%;
 }
 
+#valueOfUserInput {
+	width: 87%;
+	height: 20%;
+	margin: 3%;
+	padding: 3%;
+	margin-right: auto;
+	/*margin-left: auto;*/
+}
+
+.userInput {
+	display: none;
+}
+
 
 
 
