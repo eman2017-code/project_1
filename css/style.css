@@ -105,9 +105,7 @@ h5 {
 	margin: 0.5%;	
 	width: 5%;
 	height: 25%;
-	/*display: inline-block;*/
 	position: sticky;
-	/*margin-right: 60%;*/
 	text-align: center;
 }
 
@@ -118,9 +116,7 @@ h5 {
 	margin: 0.5%;	
 	width: 5%;
 	height: 25%;
-	/*display: inline-block;*/
 	position: sticky;
-	/*margin-right: 60%;*/
 	text-align: center;
 }
 
@@ -131,9 +127,7 @@ h5 {
 	margin: 0.5%;	
 	width: 5%;
 	height: 25%;
-	/*display: inline-block;*/
 	position: sticky;
-	/*margin-right: 60%;*/
 	text-align: center;
 }
 
@@ -144,9 +138,7 @@ h5 {
 	margin: 0.5%;
 	width: 5%;
 	height: 25%;
-	/*display: inline-block;*/
 	position: sticky;
-	/*margin-left: 6.5%;*/
 }
 
 .floatingWords {
@@ -171,92 +163,12 @@ h5 {
 	margin: 3%;
 	padding: 3%;
 	margin-right: auto;
-	/*margin-left: auto;*/
 }
 
-.userInput {
-	display: none;
+.userInputSection {
+	/*display: none;*/
+	margin-top: 40%;
 }
-
-/*.wrapper{
-		height: 400px;
-    	width: 410px;
-    	position: relative;
-    	margin: 0 auto;
-}*/
-
-/*a.replay {
-	    background: #fff;
-	    padding: 10px;
-	    text-decoration: none;
-	    border-radius: 4px;
-	    margin-top: 10px;
-	    display: inline-block;
-	    width: auto;
-    color:green;
-    cursor:pointer;
-	}
-	.gameover{
-	    height: 100%;
-	    width: 100%;
-	    position: absolute;
-	    left: 0;
-	    right: 0;
-	    top: 0;
-	    bottom: 0;
-	    background: rgba(0,0,0,0.9);
-	    display: none;
-	    color: #fff;
-	    text-align: center;
-	}
-
-     .wordsscreen{
- 	    height: 300px;
-	    width: 400px;
-	    position: relative;
-	    border: 1px solid #ccc;
-	    float: left;
-	    overflow:hidden;
-
-     }
-     .error{display: none;}
-     .clear{clear:both;}
-     .clear input{ 
-        font-size: 20px;
-	    width: 400px;
-	    height: 40px;
-	    border-radius: 4px;
-	    border: 1px solid #ccc;
-	    margin-top: 4px;
-	    text-align: center;
-	}
-     .quote:nth-child(odd){ left:30%; }
-     .quote:nth-child(even){ right:20%;}
-     
-     .score-board{font-size: 20px;}
-     
-	b.error {
-	    position: absolute;
-	    bottom: 0;
-	    right: 0;
-	    color: red;
-	    font-family: sans-serif;
-	    font-size: 12px;
-	    padding: 4px;
-	}
-	.quote {
-	    width: auto;
-	    background: black;
-	    color: #fff;
-	    padding: 4px;
-	    display: inline;
-	    position: absolute;
-	    top: 0;
-	    border-radius: 5px;
-	    height:20px;
-    /*-webkit-animation: expand 5s;*/
-
-
 
 
 

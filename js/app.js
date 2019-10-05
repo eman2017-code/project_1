@@ -4,6 +4,7 @@ const game = {
 	lives: 5,
 	timer: null,
 	score: 0,
+	level: 5000,
 	//array of words for levels 
 	words: [
 		['hello', 'goodbye', 'evening', 'morning', 'afternoon', 'tamagotchi'], // level 1
@@ -32,22 +33,15 @@ const game = {
 		['underwear', 'foot', 'portrait', 'teeth', 'chin', 'book', 'books', 'deorderant', 'brush', 'white board', 'chalk board', 'receive', 'port', 'deck', 'ship', 'acknowledgement', 'acknowledge', 'realm', 'interesting', 'pound',' particular', 'jump', 'caresses', 'suburban', 'city'], // level 9
 
 		['liquid', 'solid', 'chicago', 'obstinate', 'hardest', 'softest', 'vocabulary', 'apathetic', 'arbitrary', 'arrogate'], // level 10
-		// [], // level 12
-		// [], // level 13
-		// [], // level 13
-		// [], // level 14
-		// [], // level 15
-		// [], // level 16
-		// [], // level 17
-		// [], // level 18
-		// [], // level 19
-		// [], // level 20
 	],
 
 	collectPlayerInfo() {
 		//collect the level selected and chosen gamertag of the user
 		const $gamerTag = $('#input-box').val().toUpperCase();
 		const $gamerDifficulty = $('#difficultyButton').val().toUpperCase();
+		if($gamerDifficulty == "easy")
+			level = 15000; // in milliseconds
+		// else()
 		// console.log($gamerTag);
 		// console.log($gamerDifficulty);
 		const $h5 = $('h5');
@@ -60,15 +54,34 @@ const game = {
 		$('.gameSection').show();
 	},
 
+	setTimeInBetweenWords(firstSet) {
+		// if() {
+			for (let i = 0; i < firstSet.length; i++) {
+				console.log(firstSet[i]);
+				// start anamation for single word
+				// retrieve the word to type from loop
+				 // setTimeout(function(){ alert("15secs"); }, this.level);
+				// level+- 2000; 
+
+			}
+			startLevel+=1;
+		// }
+
+		
+	},
+ 
 	startGame() {
 		// when user clicks the start button the first array of words will appear on the screen
 		// floating from right to left
-		// loop through the first array randomly
-			for(let i = 0; i < this.words[0].length; i++) {
-				console.log(this.words[0][i]);
-				// $('.floatingWords').html('hello');
-				$('.userInput').show();
-			}
+		// loop through the first array randomlyot
+		totalNumOfLevels =   this.words.length;
+        startLevel = 0;
+		for(let i = 0;  i < totalNumOfLevels; i++) {
+			// console.log(this.words[0][i]);
+			// setTimeout(function(){ alert("15secs"); }, this.level);
+			//this.setTimeInBetweenWords(this.words[i]);
+		}
+		this.setTimeInBetweenWords(this.words[ startLevel ]);
 
 		// keycode for 'enter' == 13;
 			// once user has typed out word, and pressing enter and it matches
@@ -76,12 +89,12 @@ const game = {
 
 
 		// the timer will start to count from 0 up
-		const interval = setInterval(() => {
-			this.timer ++;
-			$timer = $('.timer');
-			$timer.html('Timer: ' + this.timer)
-			console.log(this.timer);
-		}, 1000);
+		// const interval = setInterval(() => {
+		// 	this.timer ++;
+		// 	$timer = $('.timer');
+		// 	$timer.html('Timer: ' + this.timer)
+		// 	console.log(this.timer);
+		// }, 1000);
 
 		// the user will be able to see the amount of lives they have 
 		$lives = $('.lives');
