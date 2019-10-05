@@ -59,7 +59,13 @@ const game = {
 		// when user clicks the start button the first array of words will appear on the screen
 		// floating from right to left
 		// loop through the first array randomly
-		console.log(this.words[0]);
+		for(let i = 0; i < this.words[0].length; i++) {
+			console.log(this.words[0][i]);
+			$('.floatingWords').html('hello');
+		}
+
+		// keycode for 'enter' == 13;
+
 
 		// the timer will start to count from 0 up
 		const interval = setInterval(() => {
@@ -76,6 +82,7 @@ const game = {
 			console.log('GAME OVER');
 		}
 
+		// the user will be able to see which round they are on
 		$rounds = $('.rounds');
 		$rounds.html('Round: ' + this.round);
 
