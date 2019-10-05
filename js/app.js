@@ -76,6 +76,9 @@ const game = {
 			console.log('GAME OVER');
 		}
 
+		$rounds = $('.rounds');
+		$rounds.html('Round: ' + this.round);
+
 		// the user will have to type the the words before they hit the left side of the screen
 		// if user does not type word fast enough, say 'game over, try again'
 
