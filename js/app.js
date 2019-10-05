@@ -69,6 +69,13 @@ const game = {
 			console.log(this.timer);
 		}, 1000);
 
+		// the user will be able to see the amount of lives they have 
+		$lives = $('.lives');
+		$lives.html('Lives: ' + this.lives);
+		if($lives <= 0) {
+			console.log('GAME OVER');
+		}
+
 		// the user will have to type the the words before they hit the left side of the screen
 		// if user does not type word fast enough, say 'game over, try again'
 
