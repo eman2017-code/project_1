@@ -59,8 +59,13 @@ const game = {
 		// when user clicks the start button the first array of words will appear on the screen
 		// floating from right to left
 		// loop through the first array randomly
+		console.log(this.words[0]);
 
 		// the timer will start to count from 0 up
+		const interval = setInterval(() => {
+			this.timer ++;
+			console.log(this.timer);
+		}, 1000);
 
 		// the user will have to type the the words before they hit the left side of the screen
 		// if user does not type word fast enough, say 'game over, try again'
