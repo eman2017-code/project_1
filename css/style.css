@@ -177,7 +177,7 @@ h5 {
  	height: 300px;
 	/*width: 400px;*/
 	width: 100%;
-	/*position: relative;*/
+	position: relative;
 	border: 1px solid #ccc;
 	/*float: left;*/
 	/*overflow:hidden;*/
