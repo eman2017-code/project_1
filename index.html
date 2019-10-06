@@ -1,50 +1,71 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>Typing Extravaganza</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <title>Typing Extravaganza</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
+
 <body>
 
-	<h1>Typing Extravaganza</h1>
+    <h1>Typing Extravaganza</h1>
 
-	<button class="onePlayerSelection"><strong>1 Player</strong></button>
-	<button class="twoPlayerSelection"><strong>2 Players</strong></button>
+    <button class="onePlayerSelection"><strong>1 Player</strong></button>
+    <button class="twoPlayerSelection"><strong>2 Players</strong></button>
 
-		<form class="createProfile">
-			<h3>Enter Your GamerTag</h3>
-			<input type="text" placeholder="JohnDoe123" id="input-box"></input>
-			<h3>Enter Your Difficulty</h3>
-			<input type="text" placeholder="Easy, Medium, Hard" id="difficultyButton"></input>
-			<br>
-			<br>
-			<input type="submit" id="submitButton"></input>
-		</form>
+    <form class="createProfile">
+        <h3>Enter Your GamerTag</h3>
+        <input type="text" placeholder="JohnDoe123" id="input-box"></input>
+        <h3>Enter Your Difficulty</h3>
+        <input type="text" placeholder="Easy, Medium, Hard" id="difficultyButton"></input>
+        <br>
+        <br>
+        <input type="submit" id="submitButton"></input>
+    </form>
 
-		<section class="gameSection">
-			<h5></h5>
-			<h4></h4>
-			<div class="container">
-				<div class="timer"></div>
-				<div class="lives"></div>
-				<div class="score"></div>
-				<div class="rounds"></div>
-				<!-- <div class="lives"></div> -->
+    <section class="gameSection">
+        <h5></h5>
+        <h4></h4>
+        <div class="container">
+            <div class="timer"></div>
+            <div class="lives"></div>
+            <div class="score"></div>
+            <div class="rounds"></div>
+            <!-- <div class="lives"></div> -->
+        </div>
+        <div class="floatingWords">
+            <button class="startButton">START</button>
+
+            <div class="wrapper">
+                <div class="wordsscreen"></div>
+<!--                 <div class="gameover">
+                    <br/>
+                    <br/>
+                    <br/>
+                    <h1>Game Over<br/><br/>
+			<div class="score-board">
+				Your Score : <b>0</b>
 			</div>
-				<div class="floatingWords">
-					<button class="startButton">START</button>
-					<!-- <p></p> -->		
-				</div>
-				<div id="userInputSection">
-					<div class="userInput">
-						<input type="text" id="valueOfUserInput" placeholder="Type Here">
-					</div>
-				</div>
+					</h1>
+                </div> -->
 
-		</section>
+                <div class="clear">
+                    <input type="text" id="getvalue" placeholder="Start Typing">
+                </div>
+            </div>
+            <!-- <p></p> -->
+        </div>
+        <!-- <div id="userInputSection">
+            <div class="userInput">
+                <input type="text" id="valueOfUserInput" placeholder="Type Here">
+            </div>
+        </div> -->
 
-<script src="js/app.js"></script>
+    </section>
+
+    <script src="js/app.js"></script>
 </body>
+
 </html>

@@ -141,11 +141,11 @@ h5 {
 	position: sticky;
 }
 
-.floatingWords {
+/*.floatingWords {
 	width: 100%;
 	height: 500px;
 	border: 3px solid black;
-}
+}*/
 
 .startButton {
 	height: 100px;
@@ -165,11 +165,70 @@ h5 {
 	margin-right: auto;
 }
 
-.userInputSection {
-	/*display: none;*/
-	margin-top: 40%;
+.wrapper {
+	height: 400px;
+    width: 100%;
+    position: static;
+    margin-left: 36%;
+    display: none;
 }
 
+.wordsscreen{
+ 	height: 300px;
+	width: 400px;
+	position: relative;
+	border: 1px solid #ccc;
+	float: left;
+	overflow:hidden;
+}
+
+.clear {
+	clear:both;
+}
+
+.clear input { 
+    font-size: 20px;
+	width: 400px;
+	height: 40px;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+	margin-top: 4px;
+	text-align: center;
+}
+
+.quote:nth-child(odd) { 
+	left:30%; 
+}
+
+.quote:nth-child(even) {
+    right:20%;
+}
+     
+.score-board {
+	font-size: 20px;
+}
+     
+b.error {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	color: red;
+	font-family: sans-serif;
+	font-size: 12px;
+	padding: 4px;
+}
+
+.quote {
+	width: auto;
+	background: black;
+	color: #fff;
+	padding: 4px;
+	display: inline;
+	position: absolute;
+	top: 0;
+	border-radius: 5px;
+	height:20px;	
+}
 
 
 

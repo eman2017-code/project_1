@@ -5,45 +5,11 @@ const game = {
 	timer: null,
 	score: 0,
 	level: 5000,
-	//array of words for levels 
-	words: [
-		['hello', 'goodbye', 'evening', 'morning', 'afternoon', 'tamagotchi'], // level 1
-
-		['coding', 'amazing', 'wonderful', 'immaculate', 'computer', 'general', 'assembly', 'crazy'], // level 2
-
-		['immaculate', 'bitter', 'iphone', 'time', 'coffee', 'javascript', 'ajax', 'protocol', 
-		'water', 'ocean', 'prestidigitation', 'camera', 'recording'], // level 3
-
-		['charger', 'liquid', 'keyboard', 'shoe', 'shoelace', 'belt', 'closet', 'inside', 'outside', 'exciting',
-		'interesting', 'wow', 'according'], // level 4
-
-		['martin', 'specialist', 'bioinformatics', 'biology', 'chemistry', 'popcorn', 'potatoe', 'worse',
-		'oblivious', 'young', 'innocent', 'because', 'because', 'constitute'], // level 5
-
-		['johnny', 'abject', 'aberration', 'abnegation', 'accost',  'acceration', 'alias', 'smirk', 'interesting', 
-		'divergents', 'hunger', 'games', 'key', 'piano', 'cup', 'morning', 'afternoon', 'tissue', 'flask', 'fire',
-		'cord', 'floor', 'wood'], // level 6
-
-		['headphones', 'earjack', 'heater', 'cooler', 'cologne', 'watch', 'apple', 'android', 'adidas', 'nike', 
-		'nike', 'backpack', 'lipstick', 'exam', 'test', 'spider', 'arachnid', 'wow', 'attack', 'warning', 'hat', 'snow', 'examine', 'sneaker', 'cover', 'candle', 'fire'], // level 7
-
-		[ 'abject', 'aberration', 'abnegation', 'accost',  'acceration', 'alias', 'smirk', 'interesting', 
-		'divergents', 'hunger', 'games', 'key', 'piano', 'cup','ocean', 'prestidigitation', 'camera', 'recording', 'precipitation', 'interesting', 'execution', 'socks'], // level 8
-
-		['underwear', 'foot', 'portrait', 'teeth', 'chin', 'book', 'books', 'deorderant', 'brush', 'white board', 'chalk board', 'receive', 'port', 'deck', 'ship', 'acknowledgement', 'acknowledge', 'realm', 'interesting', 'pound',' particular', 'jump', 'caresses', 'suburban', 'city'], // level 9
-
-		['liquid', 'solid', 'chicago', 'obstinate', 'hardest', 'softest', 'vocabulary', 'apathetic', 'arbitrary', 'arrogate'], // level 10
-	],
 
 	collectPlayerInfo() {
 		//collect the level selected and chosen gamertag of the user
 		const $gamerTag = $('#input-box').val().toUpperCase();
 		const $gamerDifficulty = $('#difficultyButton').val().toUpperCase();
-		if($gamerDifficulty == "easy")
-			level = 15000; // in milliseconds
-		// else()
-		// console.log($gamerTag);
-		// console.log($gamerDifficulty);
 		const $h5 = $('h5');
 		const $h4 = $('h4');
 		$h5.html('Welcome: ' + $gamerTag);
@@ -53,48 +19,16 @@ const game = {
 		$('body').css('background-color', '#324759');
 		$('.gameSection').show();
 	},
-
-	setTimeInBetweenWords(firstSet) {
-		// if() {
-			for (let i = 0; i < firstSet.length; i++) {
-				console.log(firstSet[i]);
-				// start anamation for single word
-				// retrieve the word to type from loop
-				 // setTimeout(function(){ alert("15secs"); }, this.level);
-				// level+- 2000; 
-
-			}
-			startLevel+=1;
-		// }
-
-		
-	},
  
 	startGame() {
-		// when user clicks the start button the first array of words will appear on the screen
-		// floating from right to left
-		// loop through the first array randomlyot
-		totalNumOfLevels =   this.words.length;
-        startLevel = 0;
-		for(let i = 0;  i < totalNumOfLevels; i++) {
-			// console.log(this.words[0][i]);
-			// setTimeout(function(){ alert("15secs"); }, this.level);
-			//this.setTimeInBetweenWords(this.words[i]);
-		}
-		this.setTimeInBetweenWords(this.words[ startLevel ]);
-
-		// keycode for 'enter' == 13;
-			// once user has typed out word, and pressing enter and it matches
-			// if their keycode == '13' the word will dissapear
-
-
 		// the timer will start to count from 0 up
-		// const interval = setInterval(() => {
-		// 	this.timer ++;
-		// 	$timer = $('.timer');
-		// 	$timer.html('Timer: ' + this.timer)
-		// 	console.log(this.timer);
-		// }, 1000);
+		const interval = setInterval(() => {
+			this.timer ++;
+			$timer = $('.timer');
+			$timer.html('Timer: ' + this.timer)
+			console.log(this.timer);
+			// set a duration for 1 second for the timer
+		}, 1000);
 
 		// the user will be able to see the amount of lives they have 
 		$lives = $('.lives');
@@ -110,6 +44,84 @@ const game = {
 		// the user will be able to see their score
 		$score = $('.score');
 		$score.html('Score: ' + this.score);
+
+		// show the game in action
+		// when user clicks the start button the first array of words will appear on the screen
+		// floating from top to bottom
+		$('.wrapper').show();
+
+		// when the user hits enter
+		$("#getvalue").on('keyup', function (e) {
+			// keyCode == 13 for when users press the 'enter' button
+			if (e.keyCode == 13) {
+				// get the value from the user if they hit enter
+				let inputValue = $('#getvalue').val();
+
+				// get each word for from the array
+				$('.wordsscreen span').each(function() {
+					// if the word that the user entered matches the word that is being shown
+                	if(inputValue === $(this).text()){
+                		$('#getvalue').val('');
+                		// remove the word
+                		$(this).remove();
+                		// add their score to the score
+                		$('.score-board').text(`Score: ${this.score}`);
+                		// otherwise keep the word floating down from the top and take off one life
+                	} else {
+						$('.error').show().delay(1000).fadeOut();
+						// decrement their life by one
+						// if their lives hit 0, game is over
+							// if the user selected 2 players, it will be the 2nd players turn and they will go 
+							// through the same process as the first player
+					}
+				});
+			}
+		});
+
+			(function(){
+				$('#getvalue').focus();
+			    let words = ['hello', 'goodbye', 'evening', 'morning', 'afternoon', 'tamagotchi',
+				'coding', 'amazing', 'wonderful', 'immaculate', 'computer', 'general', 'assembly', 'crazy',
+				'immaculate', 'bitter', 'iphone', 'time', 'coffee', 'javascript', 'ajax', 'protocol', 
+				'water', 'ocean', 'prestidigitation', 'camera', 'recording', 'charger', 'liquid', 'keyboard', 'shoe', 'shoelace', 'belt', 'closet', 'inside', 'outside', 'exciting',
+				'interesting', 'wow', 'according',
+				'martin', 'specialist', 'bioinformatics', 'biology', 'chemistry', 'popcorn', 'potatoe', 'worse',
+				'oblivious', 'young', 'innocent', 'because', 'because', 'constitute',
+				'johnny', 'abject', 'aberration', 'abnegation', 'accost',  'acceration', 'alias', 'smirk', 'interesting', 
+				'divergents', 'hunger', 'games', 'key', 'piano', 'cup', 'morning', 'afternoon', 'tissue', 'flask', 'fire',
+				'cord', 'floor', 'wood',
+				'headphones', 'earjack', 'heater', 'cooler', 'cologne', 'watch', 'apple', 'android', 'adidas', 'nike', 
+				'nike', 'backpack', 'lipstick', 'exam', 'test', 'spider', 'arachnid', 'wow', 'attack', 'warning', 'hat', 'snow', 'examine', 'sneaker', 'cover', 'candle', 'fire',
+				'abject', 'aberration', 'abnegation', 'accost',  'acceration', 'alias', 'smirk', 'interesting', 
+				'divergents', 'hunger', 'games', 'key', 'piano', 'cup','ocean', 'prestidigitation', 'camera', 'recording', 'precipitation', 'interesting', 'execution', 'socks',
+				'underwear', 'foot', 'portrait', 'teeth', 'chin', 'book', 'books', 'deorderant', 'brush', 'white board', 'chalk board', 'receive', 'port', 'deck', 'ship', 'acknowledgement', 'acknowledge', 'realm', 'interesting', 'pound',' particular', 'jump', 'caresses', 'suburban', 'city',
+				'liquid', 'solid', 'chicago', 'obstinate', 'hardest', 'softest', 'vocabulary', 'apathetic', 'arbitrary', 'arrogate',
+				], i = 0;
+				// set the timer for how the words will be appearing on the screen
+			    setInterval(function() {
+					let elem = $("<span />", {
+    					"class": "quote"
+					});
+						$('.wordsscreen').append(elem);
+							elem.slideDown(function() {
+    					$(this).html(words[i = (i + 1) % words.length]).animate({
+        					top: '100%'
+    			}, 4000);
+				});
+					// have the words float from top to bottom
+					let position = $('span').position()
+					// start at this position from the top of the screen
+					if (position.top > 280) {
+					    // have each word fade in as they come in from the top
+					    $('.gameover').fadeIn();
+					}
+					// set a duration for 2 seconds
+					}, 2000);
+
+					})();
+
+				}
+			}
 
 		// the user will have to type the the words before they hit the left side of the screen
 		// if user does not type word fast enough, say 'game over, try again'
@@ -130,10 +142,7 @@ const game = {
 		// if user1 and user2 both complete all 20 levels without failing,
 		// bring them to the states page, if user1 has completed all 20 levels in less time than
 		// user2, user1 wins... if user2 has completed all 20 levels in less time than use1,
-		// user2 winss
-
-	},
-}
+		// user2 wins
 
 
 
@@ -168,6 +177,75 @@ $('.startButton').on('click', () => {
 	// $('.userInput').show();
 });
 
+	// var score=0
+	// 			$("#getvalue").on('keyup', function (e) {
+	// 			    if (e.keyCode == 13) {
+	// 			        var inputValue=$('#getvalue').val();
+	// 			        $('.wordsscreen span').each(function (){
+ //                  if(inputValue === $(this).text()){
+ //                      $('#getvalue').val('');
+ //                      $(this).remove();
+ //                      $('.score-board b').text(score+=1);
+ //                  }
+	// 						else{
+	// 							$('.error').show().delay(1000).fadeOut();
+	// 						}
+	// 						});
+	// 			    }
+	// 			});
+				
+
+	// 		(function(){
+	// 			$('#getvalue').focus();
+	// 		    var words = [
+	// 		        "awesome",
+	// 		        "judge",
+	// 		        "cool",
+	// 		        "fan",
+	// 		        "foo", 
+	// 		        "bar", 
+	// 		        "baz", 
+	// 		        "chuck", 
+	// 		        "apple", 
+	// 		        "mango", 
+	// 		        "boy", 
+	// 		        "toy", 
+	// 		        "basic",
+	// 		        "enclose",
+	// 				'fiji',
+	// 				'unwear',
+	// 				'dardic',
+	// 				'leadier',
+	// 				'blow',
+	// 				'cry',
+	// 				'alexandrian',
+	// 				'allentown',
+	// 				'idolist',
+	// 				'convexedness',
+	// 				'handshake',
+	// 				'cooner',
+	// 				'thessalus',
+	// 				'in'
+	// 		        ], i = 0;
+	// 		    setInterval( function(){
+	// 		    	// generatign new span element
+	// 		    	 var elem = $("<span />", {
+	// 				    "class": "quote"
+	// 				  });
+	// 				  $('.wordsscreen').append(elem);
+	// 		        elem.slideDown(function(){
+	// 		            $(this).html(words[i=(i+1)%words.length]).animate({
+	// 		            	top:'100%'
+	// 		            }, 4000);
+	// 		        })
+	// 		        var position = $('span').position()
+	// 			    if(position.top > 280){
+	// 			    	$('.gameover').fadeIn();
+	// 			    }
+
+	// 		    }, 2000);
+			        
+	// 		})();
 
 
 
