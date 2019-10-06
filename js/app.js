@@ -11,26 +11,29 @@ const game = {
 		['coding', 'amazing', 'wonderful', 'immaculate', 'computer', 'general', 'assembly', 'crazy',
 				'immaculate', 'bitter', 'iphone', 'time', 'coffee', 'javascript', 'ajax', 'protocol'], // level 2
 
-		['water', 'ocean', 'prestidigitation', 'camera', 'recording', 'charger', 'liquid', 'keyboard', 'shoe', 'shoelace', 'belt', 'closet', 'inside', 'outside', 'exciting'], // level 3
+		['water', 'ocean', 'prestidigitation', 'camera', 'recording', 'charger', 'liquid', 'keyboard', 'shoe', 'shoelace', 
+		'belt', 'closet', 'inside', 'outside', 'exciting'], // level 3
 
-		['interesting', 'wow', 'according',
-				'martin', 'specialist', 'bioinformatics', 'biology', 'chemistry', 'popcorn', 'potatoe', 'worse',
+		['interesting', 'wow', 'according', 'martin', 'specialist', 'bioinformatics', 'biology', 'chemistry', 'popcorn', 'potatoe', 'worse',
 				'oblivious', 'young', 'innocent', 'because', 'because', 'constitute'], // level 4
 
 		['johnny', 'abject', 'aberration', 'abnegation', 'accost',  'acceration', 'alias', 'smirk', 'interesting', 
 				'divergents', 'hunger', 'games', 'key', 'piano', 'cup', 'morning', 'afternoon', 'tissue', 'flask', 'fire',
 				'cord', 'floor', 'wood'], // level 5
 
-		['headphones', 'earjack', 'heater', 'cooler', 'cologne', 'watch', 'apple', 'android', 'adidas', 'nike',  'abnegation', 'accost', 'acceration', 'cologne', 'watch', 'apple', 'android'
+		['headphones', 'earjack', 'heater', 'cooler', 'cologne', 'watch', 'apple', 'android', 'adidas', 'nike',  'abnegation', 'accost', 
+		'acceration', 'cologne', 'watch', 'apple', 'android',
 		'exam', 'test', 'spider', 'arachnid', 'wow', 'attack', 'warning', 'hat', 'snow', 'examine', 'sneaker', 'cover', 'candle', 'fire',
-				'abject', 'aberration', 'abnegation', 'accost',  'acceration', 'alias', 'smirk', 'interesting',], // level 6
+				'abject', 'aberration', 'abnegation', 'accost',  'acceration', 'alias', 'smirk', 'interesting'], // level 6
 
 		['cologne', 'watch', 'apple', 'android', 'adidas', 'nike', 
-	 			'nike', 'backpack', 'lipstick', 'exam', 'test', 'spider', 'arachnid', 'wow', 'attack', 'warning', 'hat', 'snow', 'examine', 'sneaker', 'cover', 'candle', 'fire',
+	 			'nike', 'backpack', 'lipstick', 'exam', 'test', 'spider', 'arachnid', 'wow', 'attack', 'warning', 'hat', 'snow', 
+	 			'examine', 'sneaker', 'cover', 'candle', 'fire',
 				'abject', 'aberration', 'adidas', 'nike', 
 				'nike', 'backpack', 'lipstick' ], // level 7
 
-		['divergents', 'hunger', 'games', 'key', 'piano', 'cup','ocean', 'prestidigitation', 'camera', 'recording', 'precipitation', 'interesting', 'execution',
+		['divergents', 'hunger', 'games', 'key', 'piano', 'cup','ocean', 'prestidigitation', 'camera', 'recording', 'precipitation', 
+		'interesting', 'execution',
 		 'socks','underwear', 'foot', 'portrait', 'teeth', 'chin', 'book', 'books', 'deorderant', 'brush', 'white board', 
 		 'chalk board', 'receive', 'port', 'deck', 'ship', 'acknowledgement', 'acknowledge', 'realm', 'interesting'], // level 8
 
@@ -38,7 +41,6 @@ const game = {
 		'receive', 'port', 'deck', 'ship', 'acknowledgement', 'acknowledge', 'realm', 'interesting', 'pound',' particular', 
 		'jump', 'caresses', 'suburban', 'city',
 		'liquid', 'solid', 'chicago', 'obstinate', 'hardest', 'softest', 'vocabulary', 'apathetic', 'arbitrary', 'arrogate',], // level 9
-
 	],
 
 	collectPlayerInfo() {
@@ -80,8 +82,10 @@ const game = {
 		$score = $('.score');
 		$score.html('Score: ' + this.score);
 
-	})();
-
+		// the words will start from top to bottom
+		// console.log(this.words[0]);
+		$('.gamePlayAction').html(this.words[0]);
+	}
 }
 
 // EVENT LISTENERS
@@ -110,7 +114,8 @@ $('.twoPlayerSelection').on('click', () => {
 $('.startButton').on('click', () => {
 	game.startGame();
 	$('.startButton').hide();
-	// $('.userInput').show();
+	$('.gamePlayAction').show();
+	$('#valueOfUserInput').show();
 });
 
 	// var score=0
