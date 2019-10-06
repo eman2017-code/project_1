@@ -52,11 +52,10 @@ const game = {
 
 		// when the user hits enter
 		$("#getvalue").on('keyup', function (e) {
-			// keyCode == 13 for when users press the 'enter' button
+			// keyCode == 13 for when users presses the 'enter' button
 			if (e.keyCode == 13) {
 				// get the value from the user if they hit enter
 				let inputValue = $('#getvalue').val();
-
 				// get each word for from the array
 				$('.wordsscreen span').each(function() {
 					// if the word that the user entered matches the word that is being shown
@@ -65,14 +64,21 @@ const game = {
                 		// remove the word
                 		$(this).remove();
                 		// add their score to the score
-                		$('.score-board').text(`Score: ${this.score}`);
-                		// otherwise keep the word floating down from the top and take off one life
+                		this.score += 1;
+                		// $('.score').text(`Score: ${this.score}`);
+                		$('.score').html('Score: ' + this.score)
                 	} else {
-						$('.error').show().delay(1000).fadeOut();
+                		// otherwise keep the word floating down from the top and take off one life
+						// $('.error').show().delay(1000).fadeOut();
 						// decrement their life by one
-						// if their lives hit 0, game is over
-							// if the user selected 2 players, it will be the 2nd players turn and they will go 
-							// through the same process as the first player
+						// if their lives hit 0, game is over	
+							// if user can selected 2 players, after the first user has not failed to complete the first
+							// round, it will be player 2's turn and same situation will be so 
+
+						// if user1 and user2 both complete all 20 levels without failing,
+						// bring them to the states page, if user1 has completed all 20 levels in less time than
+						// user2, user1 wins... if user2 has completed all 20 levels in less time than use1,
+						// user2 wins
 					}
 				});
 			}
@@ -122,31 +128,6 @@ const game = {
 
 				}
 			}
-
-		// the user will have to type the the words before they hit the left side of the screen
-		// if user does not type word fast enough, say 'game over, try again'
-
-		// if user can selected 2 players, after the first user has not failed to complete the first
-		// round, it will be player 2's turn and same situation will be so 
-
-		// if user is able to type all the words fast enough, the round will be added by one
-		// and next array of words will appear, looping randomly just like the first one
-
-		// if user 2 fails to complete a round, bring them to the stats page, where it will show
-		// the amount of words that each player has typed
-			// if user1 has more than user2, user1 wins, if user2 has more than user1, user2 wins
-
-		// there will be 20 levels that they user can complete
-			// each adding more words and bigger words than the next
-
-		// if user1 and user2 both complete all 20 levels without failing,
-		// bring them to the states page, if user1 has completed all 20 levels in less time than
-		// user2, user1 wins... if user2 has completed all 20 levels in less time than use1,
-		// user2 wins
-
-
-
-
 
 // EVENT LISTENERS
 
