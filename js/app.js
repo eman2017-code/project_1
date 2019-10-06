@@ -64,7 +64,7 @@ const game = {
                 		// remove the word
                 		$(this).remove();
                 		// add their score to the score
-                		this.score += 1;
+                		this.score ++;
                 		// $('.score').text(`Score: ${this.score}`);
                 		$('.score').html('Score: ' + this.score)
                 	} else {
@@ -117,8 +117,10 @@ const game = {
 					// have the words float from top to bottom
 					let position = $('span').position()
 					// start at this position from the top of the screen
+						// want to make it come from right to left
 					if (position.top > 280) {
 					    // have each word fade in as they come in from the top
+					    	// want to make them come from right to left
 					    $('.gameover').fadeIn();
 					}
 					// set a duration for 2 seconds
