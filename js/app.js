@@ -88,13 +88,22 @@ const game = {
 		// loop through the words in the first level (array)
 		// have each word show from top to bottom
 		// have each word appear 5 seconds apart from each other for the first 3 levels
-		
-		for(let i = 0; i < this.words[0].length; i++) {
-			console.log(this.words[0][i]);
-			$('.wordsForUserToType').html('These are the words from the first level: ' + this.words[0]);
-		}
+			// for(let i = 0; i < this.words[0].length; i++) {
+			// 	// console.log(this.words[0][i]);
+			// 	$('.wordsForUserToType').html('These are the words from the first level: ' + this.words[0]);
+			// }
+		// use a for each loop and for each element in the array, have it fade in 5 seconds apart
+		// console.log(this.words[0]);
+		// for(let i = 0; i < this.words[0].length; i++) {
+		// 	console.log(this.words[0][i]);
+		// }
 
-		//
+		this.words[0].forEach(function(item, index) {
+			console.log(item, index);
+		})
+
+		
+
 
 
 
@@ -109,6 +118,10 @@ const game = {
 			// check to see if the userInput == to the current word that is on the screen
 			console.log($userInput);
 		});
+	},
+
+	animationForWords() {
+		
 	}
 }
 
