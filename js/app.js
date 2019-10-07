@@ -61,10 +61,8 @@ const game = {
 	},
 
 	showWord() {
-
 		// append an element to the '.words' span in the HTML 
 		setTimeout(() => {
-
 			// this is my base case
 			if(this.words.length === 0) {
 				return 0;
@@ -76,15 +74,9 @@ const game = {
 				$div.append(this.words[randomWordIndex]);
 				// I need to add an animation here for how the words will appear
 				$('.words').append($div);
-				// $('.words').append(this.words[randomWordIndex]);
-				// console.log(this.words[randomWord]);
-				// push this into the array that has all of the words that have already 
-				// showed up on the screen already
 				this.wordsAppeared.push(this.words[randomWordIndex]);
 				// remove from array
 				this.words.splice(randomWordIndex, 1);
-				// console.log(this.wordsAppeared);
-				// console.log(this.words);
 				this.showWord()
 			}
 
