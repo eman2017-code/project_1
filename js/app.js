@@ -82,28 +82,22 @@ const game = {
 		$score = $('.score');
 		$score.html('Score: ' + this.score);
 
-		$(this.words[0]).each(function(index, element) {
-			console.log(this);
+		// this will loop through the words on the first level
+		$(this.words[0]).each(function() {
+			// wait 5 seconds in between each of the words 
+			// have each word append to the span, have it wait 1 second, and then fade in 
+			const interal = setInterval(() => {
+				$('.words').append(this).slideToggle();
+			}, 1000);	
 		});
 
 	},
 
+	setAnimation() {
+		// this will take the animation of the span and make it move depending on the level that the user has selected
+	},
+
 	checkWord() {
-		// loop through the words in the first level (array)
-
-		// have each word appear from top to bottom
-		// have each word appear 5 seconds apart from each other for the first 3 levels
-			// for(let i = 0; i < this.words[0].length; i++) {
-			// 	// console.log(this.words[0][i]);
-			// 	$('.wordsForUserToType').html('These are the words from the first level: ' + this.words[0]);
-			// }
-		// use a for each loop and for each element in the array, have it fade in 5 seconds apart
-		// console.log(this.words[0]);
-		// for(let i = 0; i < this.words[0].length; i++) {
-		// 	console.log(this.words[0][i]);
-		// }
-
-
 	// get the input from when the user types the word that is shown on the screen
 	// if user input == the word, make that word dissapear
 		$('#valueOfUserInput').keypress(function(e) {
