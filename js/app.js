@@ -82,11 +82,16 @@ const game = {
 		$score = $('.score');
 		$score.html('Score: ' + this.score);
 
+		$(this.words[0]).each(function(index, element) {
+			console.log(this);
+		});
+
 	},
 
 	checkWord() {
 		// loop through the words in the first level (array)
-		// have each word show from top to bottom
+
+		// have each word appear from top to bottom
 		// have each word appear 5 seconds apart from each other for the first 3 levels
 			// for(let i = 0; i < this.words[0].length; i++) {
 			// 	// console.log(this.words[0][i]);
@@ -97,14 +102,6 @@ const game = {
 		// for(let i = 0; i < this.words[0].length; i++) {
 		// 	console.log(this.words[0][i]);
 		// }
-
-		this.words[0].forEach(function(item, index) {
-			console.log(item, index);
-		})
-
-		
-
-
 
 
 	// get the input from when the user types the word that is shown on the screen
@@ -119,10 +116,6 @@ const game = {
 			console.log($userInput);
 		});
 	},
-
-	animationForWords() {
-		
-	}
 }
 
 // EVENT LISTENERS
