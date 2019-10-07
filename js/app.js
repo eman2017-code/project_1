@@ -82,25 +82,31 @@ const game = {
 		$score = $('.score');
 		$score.html('Score: ' + this.score);
 
-		// console.log(this.words[0]);
-		$('.gamePlayAction').html(this.words[0]);
+		// have each word float from top to bottom one at a time
+
 		// get the input from when the user types the word that is shown on the screen
 		// if user input == the word, make that word dissapear
 		// keyCode for enter == 13
-
-		$('.userInput').on('keyup', (e) => {
-			const $userInput = $('.userInput').val();
-			// if the user presses enter
-			if(e.keyCode == 13) {
-				// console.log(true);
-				console.log($userInput);
-				// get the input from the user
-			}
-		});
-
 	},
 
 	checkWord() {
+		
+	// var score=0
+	// 			$("#getvalue").on('keyup', function (e) {
+	// 			    if (e.keyCode == 13) {
+	// 			        var inputValue=$('#getvalue').val();
+	// 			        $('.wordsscreen span').each(function (){
+ //                  if(inputValue === $(this).text()){
+ //                      $('#getvalue').val('');
+ //                      $(this).remove();
+ //                      $('.score-board b').text(score+=1);
+ //                  }
+	// 						else{
+	// 							$('.error').show().delay(1000).fadeOut();
+	// 						}
+	// 						});
+	// 			    }
+	// 			});
 		// if the entered word is the word that is on the screen, make the word dissapear
 	}
 }
@@ -130,27 +136,11 @@ $('.twoPlayerSelection').on('click', () => {
 
 $('.startButton').on('click', () => {
 	game.startGame();
+	game.checkWord();
 	$('.startButton').hide();
 	$('.gamePlayAction').show();
 	$('#valueOfUserInput').show();
 });
-
-	// var score=0
-	// 			$("#getvalue").on('keyup', function (e) {
-	// 			    if (e.keyCode == 13) {
-	// 			        var inputValue=$('#getvalue').val();
-	// 			        $('.wordsscreen span').each(function (){
- //                  if(inputValue === $(this).text()){
- //                      $('#getvalue').val('');
- //                      $(this).remove();
- //                      $('.score-board b').text(score+=1);
- //                  }
-	// 						else{
-	// 							$('.error').show().delay(1000).fadeOut();
-	// 						}
-	// 						});
-	// 			    }
-	// 			});
 				
 
 	// 		(function(){
