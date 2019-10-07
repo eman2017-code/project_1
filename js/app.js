@@ -105,10 +105,6 @@ const game = {
 
 	},
 
-	setAnimation() {
-		// this will add animation to the words as they appear on the screen
-	},
-
 	checkWord(userInput) {
 		// check input against all the words on the screen
 		// loop thru words
