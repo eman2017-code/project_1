@@ -90,6 +90,22 @@ const game = {
 	},
 
 	checkWord() {
+	$('#valueOfUserInput').on('keyup', function(e) {
+		if(e.keyCode == 13) {
+			const inputValue = $('#valueOfUserInput').val();
+			$('.gamePlayAction').each(function() {
+				if(inputValue === $(this).text()) {
+					$('#valueOfUserInput').val('');
+					$(this)remove();
+					const $score = $(this.score);
+					$score.text(`Score: ` += 1);
+					// $age.text(`Age: ${Math.floor(this.tomagotchiPet.age)}`)
+				} else {
+					console.log('hello there');
+				}
+			})
+		}
+	})
 
 		
 	// let score=0
