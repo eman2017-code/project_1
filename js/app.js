@@ -4,7 +4,6 @@ const game = {
 	lives: 5,
 	timer: null,
 	score: 0,
-	level: 5000,
 	words: [
 		['hello', 'goodbye', 'evening', 'morning', 'afternoon', 'tamagotchi'], // level 1
 
@@ -46,6 +45,7 @@ const game = {
 	collectPlayerInfo() {
 		//collect the level selected and chosen gamertag of the user
 		const $gamerTag = $('#input-box').val().toUpperCase();
+		// console.log($gamerTag);
 		const $gamerDifficulty = $('#difficultyButton').val().toUpperCase();
 		const $h5 = $('h5');
 		const $h4 = $('h4');
@@ -82,9 +82,26 @@ const game = {
 		$score = $('.score');
 		$score.html('Score: ' + this.score);
 
-		// the words will start from top to bottom
 		// console.log(this.words[0]);
 		$('.gamePlayAction').html(this.words[0]);
+		// get the input from when the user types the word that is shown on the screen
+		// if user input == the word, make that word dissapear
+		// keyCode for enter == 13
+
+		$('.userInput').on('keyup', (e) => {
+			const $userInput = $('.userInput').val();
+			// if the user presses enter
+			if(e.keyCode == 13) {
+				// console.log(true);
+				console.log($userInput);
+				// get the input from the user
+			}
+		});
+
+	},
+
+	checkWord() {
+		// if the entered word is the word that is on the screen, make the word dissapear
 	}
 }
 
