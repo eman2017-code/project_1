@@ -90,11 +90,12 @@ const game = {
 	},
 
 	checkWord() {
+
 		
-	// var score=0
+	// let score=0
 	// 			$("#getvalue").on('keyup', function (e) {
 	// 			    if (e.keyCode == 13) {
-	// 			        var inputValue=$('#getvalue').val();
+	// 			        let inputValue=$('#getvalue').val();
 	// 			        $('.wordsscreen span').each(function (){
  //                  if(inputValue === $(this).text()){
  //                      $('#getvalue').val('');
