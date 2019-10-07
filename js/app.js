@@ -4,6 +4,7 @@ const game = {
 	lives: 5,
 	timer: null,
 	score: 0,
+	wordsAppeared: [],
 	words: [
 		'hello', 'goodbye', 'evening', 'morning', 'afternoon', 'tamagotchi',
 		'coding', 'amazing', 'wonderful', 'immaculate', 'computer', 'general', 'assembly', 'crazy',
@@ -55,8 +56,8 @@ const game = {
 		// 	// set a duration for 1 second for the timer
 		// }, 1000);
 
-		this.showInfo()
-		this.showWord()
+		this.showInfo();
+		this.showWord();
 
 	},
 
@@ -65,23 +66,27 @@ const game = {
 		// append an element to the '.words' span in the HTML 
 		setTimeout(() => {
 
-			// get a random word
-			// remove from array
-
-			// this is appending the entire set at once... I need one element at a time
-			// $('.words').append(randomWord);
+			// this is my base case
+			if(this.words.length == 0) {
+				return 0;
+			} else {
+				// get a random word
+				const randomWord = Math.floor(Math.random() * this.words.length);
+				$('.words').append(this.words[randomWord]);
+				console.log(this.words[randomWord]);
+				this.wordsAppeared.push(randomWord);
+				// remove from array
+				this.words.splice(randomWord, 1);
+				// console.log(this.wordsAppeared);
+				// console.log(this.words);
+			}
 
 			// track words currently on screen in an array in game obj add this word to array
 			// -- will be used to compare by checkWord()
 
+			// $('.words').append('hello')
 
-
-			// if words are left
-				// call this function again ()
-
-			$('.words').append('hello')
-
-		}, 3000)
+		}, 1000)
 
 	},
 
