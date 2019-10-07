@@ -6,28 +6,27 @@ const game = {
 	score: 0,
 	wordsAppeared: [],
 	words: [
-		'hello', 'goodbye', 'evening', 'morning', 'afternoon', 'tamagotchi',
-		'coding', 'amazing', 'wonderful', 'immaculate', 'computer', 'general', 'assembly', 'crazy',
-		'immaculate', 'bitter', 'iphone', 'time', 'coffee', 'javascript', 'ajax', 'protocol', 'water', 'ocean', 
-		'prestidigitation', 'camera', 'recording', 'charger', 'liquid', 'keyboard', 'shoe', 'shoelace', 
-		'belt', 'closet', 'inside', 'outside', 'exciting', 'interesting', 'wow', 'according', 'martin', 
+		'hello', 'goodbye', 'evening', 'afternoon', 'tamagotchi',
+		'coding', 'amazing', 'wonderful', 'computer', 'general', 'assembly', 'crazy',
+		'immaculate', 'bitter', 'iphone', 'time', 'coffee', 'javascript', 'ajax', 'protocol', 'water', 
+		'prestidigitation', 'charger', 'keyboard', 'shoe', 'shoelace', 
+		'belt', 'closet', 'inside', 'outside', 'exciting', 'wow', 'according', 'martin', 
 		'specialist', 'bioinformatics', 'biology', 'chemistry', 'popcorn', 'potatoe', 'worse', 'oblivious', 'young', 
 		'innocent', 'because', 'constitute', 'johnny', 'abject', 'aberration', 'abnegation', 'accost',  
-		'acceration', 'alias', 'smirk', 'interesting', 'divergents', 'hunger', 'games', 'key', 'piano', 'cup', 
-		'morning', 'afternoon', 'tissue', 'flask', 'fire','cord', 'floor', 'wood', 'headphones', 'earjack', 
-		'heater', 'cooler', 'cologne', 'watch', 'apple', 'android', 'adidas', 'nike',  'abnegation', 'accost', 
-		'acceration', 'cologne', 'watch', 'apple', 'android', 'exam', 'test', 'spider', 'arachnid', 'wow', 
-		'attack', 'warning', 'hat', 'snow', 'examine', 'sneaker', 'cover', 'candle', 'fire', 'abject', 'aberration', 
-		'abnegation', 'accost',  'acceration', 'alias', 'smirk', 'interesting',
+		'acceration', 'alias', 'smirk', 'divergents', 'hunger', 'games', 'key', 'piano', 'cup', 
+		'morning', 'tissue', 'flask', 'fire','cord', 'floor', 'wood', 'headphones', 'earjack', 
+		'heater', 'cooler', 'cologne', 'watch', 'apple', 'android', 'adidas', 'nike', 
+		'acceration', 'cologne', 'watch', 'apple', 'android', 'exam', 'test', 'spider', 'arachnid', 
+		'attack', 'warning', 'hat', 'snow', 'examine', 'sneaker', 'cover', 'candle', 'fire', 'acceration', 'alias', 'smirk',
 		'cologne', 'watch', 'apple', 'android', 'adidas', 'nike', 'backpack', 'lipstick', 'exam', 'test', 'spider', 
-		'arachnid', 'wow', 'attack', 'warning', 'hat', 'snow','examine', 'sneaker', 'cover', 'candle', 'fire', 'abject', 
-		'aberration', 'adidas', 'nike',,'nike', 'backpack', 'lipstick', 'divergents', 'hunger', 'games', 
-		'key', 'piano', 'cup','ocean', 'prestidigitation', 'camera', 'recording', 'precipitation', 
+		'arachnid', 'wow', 'attack', 'warning', 'hat', 'snow','examine', 'sneaker', 'cover', 'candle', 'fire', 
+		'adidas', 'nike',,'nike', 'backpack', 'lipstick', 'divergents', 'hunger', 'games', 
+		'key', 'piano', 'cup','ocean', 'camera', 'recording', 'precipitation', 
 		'interesting', 'execution', 'socks','underwear', 'foot', 'portrait', 'teeth', 'chin', 'book', 'books', 
-		'deorderant', 'brush', 'white board', 'chalk board', 'receive', 'port', 'deck', 'ship', 'acknowledgement', 
-		'acknowledge', 'realm', 'interesting', 'underwear', 'foot', 'portrait', 'teeth', 'chin', 'book', 'books', 
-		'deorderant', 'brush', 'white board', 'chalk board', 'receive', 'port', 'deck', 'ship', 'acknowledgement', 
-		'acknowledge', 'realm', 'interesting', 'pound',' particular', 'jump', 'caresses', 'suburban', 'city',
+		'deorderant', 'brush', 'white board', 'chalk board', 'receive', 'port', 'deck', 'ship', 
+		'acknowledge', 'realm', 'underwear', 'foot', 'portrait', 'teeth', 'chin', 'book', 'books', 
+		'deorderant', 'brush', 'white board', 'chalk board', 'receive', 'port', 'deck', 'ship', 
+		'acknowledge', 'realm', 'pound',' particular', 'jump', 'caresses', 'suburban', 'city',
 		'liquid', 'solid', 'chicago', 'obstinate', 'hardest', 'softest', 'vocabulary', 'apathetic', 'arbitrary', 'arrogate'
 	],
 
@@ -67,24 +66,30 @@ const game = {
 		setTimeout(() => {
 
 			// this is my base case
-			if(this.words.length == 0) {
+			if(this.words.length === 0) {
 				return 0;
 			} else {
 				// get a random word
-				const randomWord = Math.floor(Math.random() * this.words.length);
-				$('.words').append(this.words[randomWord]);
-				console.log(this.words[randomWord]);
-				this.wordsAppeared.push(randomWord);
+				const randomWordIndex = Math.floor(Math.random() * this.words.length);
+				// make this show up on the page for the user to see 
+				const $div = $('<div id="wordDiv"></div>');
+				$div.append(this.words[randomWordIndex]);
+				// I need to add an animation here for how the words will appear
+				$('.words').append($div);
+				// $('.words').append(this.words[randomWordIndex]);
+				// console.log(this.words[randomWord]);
+				// push this into the array that has all of the words that have already 
+				// showed up on the screen already
+				this.wordsAppeared.push(this.words[randomWordIndex]);
 				// remove from array
-				this.words.splice(randomWord, 1);
+				this.words.splice(randomWordIndex, 1);
 				// console.log(this.wordsAppeared);
 				// console.log(this.words);
+				this.showWord()
 			}
 
 			// track words currently on screen in an array in game obj add this word to array
 			// -- will be used to compare by checkWord()
-
-			// $('.words').append('hello')
 
 		}, 1000)
 
@@ -109,16 +114,28 @@ const game = {
 	},
 
 	setAnimation() {
-		// this will take the animation of the span and make it move depending on the level that the user has selected
+		// this will add animation to the words as they appear on the screen
 	},
 
 	checkWord(userInput) {
-
 		// check input against all the words on the screen
 		// loop thru words
 
+		// get the randomized word from the word array
+		const randomWord = Math.floor(Math.random() * this.words.length);
+
+		const $userInput = $('#valueOfUserInput').val();
+		// console.log($userInput);
+		if($userInput == this.words[randomWord]) {
+			console.log("this is this.words[randomWord]");
+			console.log(this.words[randomWord]);
+			this.words[randomWord].remove();
+		}
+
 		// if the word that the user typed matches the current word that is being appended
 		// that word will dissapear from array and from screen
+
+
 
 	},
 }
@@ -148,7 +165,7 @@ $('.twoPlayerSelection').on('click', () => {
 
 $('.startButton').on('click', () => {
 	game.startGame();
-	game.checkWord();
+	// game.checkWord();
 	$('.startButton').hide();
 	$('.gamePlayAction').show();
 	$('#valueOfUserInput').show();
@@ -160,6 +177,7 @@ $('#valueOfUserInput').on('keypress', function(e) {
 
 	if(keyCode == '13') {
 		const $userInput = $('#valueOfUserInput').val();
+
 		console.log($userInput);
 		game.checkWord($userInput)
 	}
