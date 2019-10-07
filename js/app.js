@@ -82,8 +82,6 @@ const game = {
 		$score = $('.score');
 		$score.html('Score: ' + this.score);
 
-		// have each word float from top to bottom one at a time
-
 	},
 
 	checkWord() {
@@ -94,9 +92,17 @@ const game = {
 			let keyCode = (e.keyCode ? e.keyCode : e.which);
 			const $userInput = $('#valueOfUserInput').val();
 			if(keyCode == '13');
-			console.log('hello you pressed the enter key');
+			// console.log('hello you pressed the enter key');
+			// check to see if the userInput == to the current word that is on the screen
 			console.log($userInput);
 		});
+
+		// loop through the words in the first level (array)
+		// have each word show from to bottom
+		// have each word appear 5 seconds apart from each other for the first 3 levels
+
+				
+
 	}
 }
 
