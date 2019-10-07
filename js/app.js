@@ -5,41 +5,29 @@ const game = {
 	timer: null,
 	score: 0,
 	words: [
-		['hello', 'goodbye', 'evening', 'morning', 'afternoon', 'tamagotchi'], // level 1
-
-		['coding', 'amazing', 'wonderful', 'immaculate', 'computer', 'general', 'assembly', 'crazy',
-				'immaculate', 'bitter', 'iphone', 'time', 'coffee', 'javascript', 'ajax', 'protocol'], // level 2
-
-		['water', 'ocean', 'prestidigitation', 'camera', 'recording', 'charger', 'liquid', 'keyboard', 'shoe', 'shoelace', 
-		'belt', 'closet', 'inside', 'outside', 'exciting'], // level 3
-
-		['interesting', 'wow', 'according', 'martin', 'specialist', 'bioinformatics', 'biology', 'chemistry', 'popcorn', 'potatoe', 'worse',
-				'oblivious', 'young', 'innocent', 'because', 'because', 'constitute'], // level 4
-
-		['johnny', 'abject', 'aberration', 'abnegation', 'accost',  'acceration', 'alias', 'smirk', 'interesting', 
-				'divergents', 'hunger', 'games', 'key', 'piano', 'cup', 'morning', 'afternoon', 'tissue', 'flask', 'fire',
-				'cord', 'floor', 'wood'], // level 5
-
-		['headphones', 'earjack', 'heater', 'cooler', 'cologne', 'watch', 'apple', 'android', 'adidas', 'nike',  'abnegation', 'accost', 
-		'acceration', 'cologne', 'watch', 'apple', 'android',
-		'exam', 'test', 'spider', 'arachnid', 'wow', 'attack', 'warning', 'hat', 'snow', 'examine', 'sneaker', 'cover', 'candle', 'fire',
-				'abject', 'aberration', 'abnegation', 'accost',  'acceration', 'alias', 'smirk', 'interesting'], // level 6
-
-		['cologne', 'watch', 'apple', 'android', 'adidas', 'nike', 
-	 			'nike', 'backpack', 'lipstick', 'exam', 'test', 'spider', 'arachnid', 'wow', 'attack', 'warning', 'hat', 'snow', 
-	 			'examine', 'sneaker', 'cover', 'candle', 'fire',
-				'abject', 'aberration', 'adidas', 'nike', 
-				'nike', 'backpack', 'lipstick' ], // level 7
-
-		['divergents', 'hunger', 'games', 'key', 'piano', 'cup','ocean', 'prestidigitation', 'camera', 'recording', 'precipitation', 
-		'interesting', 'execution',
-		 'socks','underwear', 'foot', 'portrait', 'teeth', 'chin', 'book', 'books', 'deorderant', 'brush', 'white board', 
-		 'chalk board', 'receive', 'port', 'deck', 'ship', 'acknowledgement', 'acknowledge', 'realm', 'interesting'], // level 8
-
-		['underwear', 'foot', 'portrait', 'teeth', 'chin', 'book', 'books', 'deorderant', 'brush', 'white board', 'chalk board', 
-		'receive', 'port', 'deck', 'ship', 'acknowledgement', 'acknowledge', 'realm', 'interesting', 'pound',' particular', 
-		'jump', 'caresses', 'suburban', 'city',
-		'liquid', 'solid', 'chicago', 'obstinate', 'hardest', 'softest', 'vocabulary', 'apathetic', 'arbitrary', 'arrogate',], // level 9
+		'hello', 'goodbye', 'evening', 'morning', 'afternoon', 'tamagotchi',
+		'coding', 'amazing', 'wonderful', 'immaculate', 'computer', 'general', 'assembly', 'crazy',
+		'immaculate', 'bitter', 'iphone', 'time', 'coffee', 'javascript', 'ajax', 'protocol', 'water', 'ocean', 
+		'prestidigitation', 'camera', 'recording', 'charger', 'liquid', 'keyboard', 'shoe', 'shoelace', 
+		'belt', 'closet', 'inside', 'outside', 'exciting', 'interesting', 'wow', 'according', 'martin', 
+		'specialist', 'bioinformatics', 'biology', 'chemistry', 'popcorn', 'potatoe', 'worse', 'oblivious', 'young', 
+		'innocent', 'because', 'constitute', 'johnny', 'abject', 'aberration', 'abnegation', 'accost',  
+		'acceration', 'alias', 'smirk', 'interesting', 'divergents', 'hunger', 'games', 'key', 'piano', 'cup', 
+		'morning', 'afternoon', 'tissue', 'flask', 'fire','cord', 'floor', 'wood', 'headphones', 'earjack', 
+		'heater', 'cooler', 'cologne', 'watch', 'apple', 'android', 'adidas', 'nike',  'abnegation', 'accost', 
+		'acceration', 'cologne', 'watch', 'apple', 'android', 'exam', 'test', 'spider', 'arachnid', 'wow', 
+		'attack', 'warning', 'hat', 'snow', 'examine', 'sneaker', 'cover', 'candle', 'fire', 'abject', 'aberration', 
+		'abnegation', 'accost',  'acceration', 'alias', 'smirk', 'interesting',
+		'cologne', 'watch', 'apple', 'android', 'adidas', 'nike', 'backpack', 'lipstick', 'exam', 'test', 'spider', 
+		'arachnid', 'wow', 'attack', 'warning', 'hat', 'snow','examine', 'sneaker', 'cover', 'candle', 'fire', 'abject', 
+		'aberration', 'adidas', 'nike',,'nike', 'backpack', 'lipstick', 'divergents', 'hunger', 'games', 
+		'key', 'piano', 'cup','ocean', 'prestidigitation', 'camera', 'recording', 'precipitation', 
+		'interesting', 'execution', 'socks','underwear', 'foot', 'portrait', 'teeth', 'chin', 'book', 'books', 
+		'deorderant', 'brush', 'white board', 'chalk board', 'receive', 'port', 'deck', 'ship', 'acknowledgement', 
+		'acknowledge', 'realm', 'interesting', 'underwear', 'foot', 'portrait', 'teeth', 'chin', 'book', 'books', 
+		'deorderant', 'brush', 'white board', 'chalk board', 'receive', 'port', 'deck', 'ship', 'acknowledgement', 
+		'acknowledge', 'realm', 'interesting', 'pound',' particular', 'jump', 'caresses', 'suburban', 'city',
+		'liquid', 'solid', 'chicago', 'obstinate', 'hardest', 'softest', 'vocabulary', 'apathetic', 'arbitrary', 'arrogate'
 	],
 
 	collectPlayerInfo() {
@@ -67,6 +55,37 @@ const game = {
 		// 	// set a duration for 1 second for the timer
 		// }, 1000);
 
+		this.showInfo()
+		this.showWord()
+
+	},
+
+	showWord() {
+
+		// append an element to the '.words' span in the HTML 
+		setTimeout(() => {
+
+			// get a random word
+			// remove from array
+
+			// this is appending the entire set at once... I need one element at a time
+			// $('.words').append(randomWord);
+
+			// track words currently on screen in an array in game obj add this word to array
+			// -- will be used to compare by checkWord()
+
+
+
+			// if words are left
+				// call this function again ()
+
+			$('.words').append('hello')
+
+		}, 3000)
+
+	},
+
+	showInfo() {
 		// the user will be able to see the amount of lives they have 
 		$lives = $('.lives');
 		$lives.html('Lives: ' + this.lives);
@@ -82,33 +101,20 @@ const game = {
 		$score = $('.score');
 		$score.html('Score: ' + this.score);
 
-		// this will loop through the words on the first level
-		$(this.words[0]).each(function() {
-			// wait 5 seconds in between each of the words 
-			// have each word append to the span, have it wait 1 second, and then fade in 
-			const interal = setInterval(() => {
-				$('.words').append(this).slideToggle();
-			}, 1000);	
-		});
-
 	},
 
 	setAnimation() {
 		// this will take the animation of the span and make it move depending on the level that the user has selected
 	},
 
-	checkWord() {
-	// get the input from when the user types the word that is shown on the screen
-	// if user input == the word, make that word dissapear
-		$('#valueOfUserInput').keypress(function(e) {
-			// keyCode for enter == 13
-			let keyCode = (e.keyCode ? e.keyCode : e.which);
-			const $userInput = $('#valueOfUserInput').val();
-			if(keyCode == '13');
-			// console.log('hello you pressed the enter key');
-			// check to see if the userInput == to the current word that is on the screen
-			console.log($userInput);
-		});
+	checkWord(userInput) {
+
+		// check input against all the words on the screen
+		// loop thru words
+
+		// if the word that the user typed matches the current word that is being appended
+		// that word will dissapear from array and from screen
+
 	},
 }
 
@@ -143,11 +149,18 @@ $('.startButton').on('click', () => {
 	$('#valueOfUserInput').show();
 });
 
+$('#valueOfUserInput').on('keypress', function(e) {
+	// keyCode for enter == 13
+	let keyCode = (e.keyCode ? e.keyCode : e.which);
 
-
-
-
-
+	if(keyCode == '13') {
+		const $userInput = $('#valueOfUserInput').val();
+		console.log($userInput);
+		game.checkWord($userInput)
+	}
+	// console.log('hello you pressed the enter key');
+	// check to see if the userInput == to the current word that is on the screen
+});
 
 
 
