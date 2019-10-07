@@ -85,10 +85,23 @@ const game = {
 	},
 
 	checkWord() {
+		// loop through the words in the first level (array)
+		// have each word show from top to bottom
+		// have each word appear 5 seconds apart from each other for the first 3 levels
+		
+		for(let i = 0; i < this.words[0].length; i++) {
+			console.log(this.words[0][i]);
+			$('.wordsForUserToType').html('These are the words from the first level: ' + this.words[0]);
+		}
+
+		//
+
+
+
 	// get the input from when the user types the word that is shown on the screen
 	// if user input == the word, make that word dissapear
-	// keyCode for enter == 13
 		$('#valueOfUserInput').keypress(function(e) {
+			// keyCode for enter == 13
 			let keyCode = (e.keyCode ? e.keyCode : e.which);
 			const $userInput = $('#valueOfUserInput').val();
 			if(keyCode == '13');
@@ -96,13 +109,6 @@ const game = {
 			// check to see if the userInput == to the current word that is on the screen
 			console.log($userInput);
 		});
-
-		// loop through the words in the first level (array)
-		// have each word show from to bottom
-		// have each word appear 5 seconds apart from each other for the first 3 levels
-
-				
-
 	}
 }
 
