@@ -59,13 +59,13 @@ const game = {
  
 	startGame() {
 		// the timer will start to count from 0 up
-		const interval = setInterval(() => {
-			this.timer ++;
-			$timer = $('.timer');
-			$timer.html('Timer: ' + this.timer)
-			console.log(this.timer);
-			// set a duration for 1 second for the timer
-		}, 1000);
+		// const interval = setInterval(() => {
+		// 	this.timer ++;
+		// 	$timer = $('.timer');
+		// 	$timer.html('Timer: ' + this.timer)
+		// 	console.log(this.timer);
+		// 	// set a duration for 1 second for the timer
+		// }, 1000);
 
 		// the user will be able to see the amount of lives they have 
 		$lives = $('.lives');
@@ -84,47 +84,13 @@ const game = {
 
 		// have each word float from top to bottom one at a time
 
-		// get the input from when the user types the word that is shown on the screen
-		// if user input == the word, make that word dissapear
-		// keyCode for enter == 13
 	},
 
 	checkWord() {
-	$('#valueOfUserInput').on('keyup', function(e) {
-		if(e.keyCode == 13) {
-			const inputValue = $('#valueOfUserInput').val();
-			$('.gamePlayAction').each(function() {
-				if(inputValue === $(this).text()) {
-					$('#valueOfUserInput').val('');
-					$(this)remove();
-					const $score = $(this.score);
-					$score.text(`Score: ` += 1);
-					// $age.text(`Age: ${Math.floor(this.tomagotchiPet.age)}`)
-				} else {
-					console.log('hello there');
-				}
-			})
-		}
-	})
+	// get the input from when the user types the word that is shown on the screen
+	// if user input == the word, make that word dissapear
+	// keyCode for enter == 13
 
-		
-	// let score=0
-	// 			$("#getvalue").on('keyup', function (e) {
-	// 			    if (e.keyCode == 13) {
-	// 			        let inputValue=$('#getvalue').val();
-	// 			        $('.wordsscreen span').each(function (){
- //                  if(inputValue === $(this).text()){
- //                      $('#getvalue').val('');
- //                      $(this).remove();
- //                      $('.score-board b').text(score+=1);
- //                  }
-	// 						else{
-	// 							$('.error').show().delay(1000).fadeOut();
-	// 						}
-	// 						});
-	// 			    }
-	// 			});
-		// if the entered word is the word that is on the screen, make the word dissapear
 	}
 }
 
@@ -158,59 +124,6 @@ $('.startButton').on('click', () => {
 	$('.gamePlayAction').show();
 	$('#valueOfUserInput').show();
 });
-				
-
-	// 		(function(){
-	// 			$('#getvalue').focus();
-	// 		    var words = [
-	// 		        "awesome",
-	// 		        "judge",
-	// 		        "cool",
-	// 		        "fan",
-	// 		        "foo", 
-	// 		        "bar", 
-	// 		        "baz", 
-	// 		        "chuck", 
-	// 		        "apple", 
-	// 		        "mango", 
-	// 		        "boy", 
-	// 		        "toy", 
-	// 		        "basic",
-	// 		        "enclose",
-	// 				'fiji',
-	// 				'unwear',
-	// 				'dardic',
-	// 				'leadier',
-	// 				'blow',
-	// 				'cry',
-	// 				'alexandrian',
-	// 				'allentown',
-	// 				'idolist',
-	// 				'convexedness',
-	// 				'handshake',
-	// 				'cooner',
-	// 				'thessalus',
-	// 				'in'
-	// 		        ], i = 0;
-	// 		    setInterval( function(){
-	// 		    	// generatign new span element
-	// 		    	 var elem = $("<span />", {
-	// 				    "class": "quote"
-	// 				  });
-	// 				  $('.wordsscreen').append(elem);
-	// 		        elem.slideDown(function(){
-	// 		            $(this).html(words[i=(i+1)%words.length]).animate({
-	// 		            	top:'100%'
-	// 		            }, 4000);
-	// 		        })
-	// 		        var position = $('span').position()
-	// 			    if(position.top > 280){
-	// 			    	$('.gameover').fadeIn();
-	// 			    }
-
-	// 		    }, 2000);
-			        
-	// 		})();
 
 
 
