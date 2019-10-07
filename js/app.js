@@ -71,12 +71,13 @@ const game = {
 				const randomWordIndex = Math.floor(Math.random() * this.words.length);
 				// make this show up on the page for the user to see 
 				const $div = $('<div id="wordDiv"></div>');
-				$div.append(this.words[randomWordIndex]);
+				$div.text(this.words[randomWordIndex]);
 				// I need to add an animation here for how the words will appear
 				$('.words').append($div);
 				this.wordsAppeared.push(this.words[randomWordIndex]);
 				// remove from array
 				this.words.splice(randomWordIndex, 1);
+
 				this.showWord()
 			}
 
@@ -108,17 +109,30 @@ const game = {
 	checkWord(userInput) {
 		// check input against all the words on the screen
 		// loop thru words
+		for(let i = 0; i < this.words.length; i++) {
+			const $userInput = $('#valueOfUserInput').val();
+			if($userInput == this.words[i]) {
+				// console.log(typeof this.words[i]);
+				// console.log('that is correct');
+				// find the div on the page with that word in it, then remove it 
+				const $wordDiv = $(`#wordDiv:contains(${this.words[i]})`);
+				// $wordDiv.css("backgroundColor", "red")
+				$wordDiv.remove();
+				// console.log($wordDiv);
+				// take it out of the original array
+				// this.words.splice(i, 1); 
+				// $wordDiv:contains(this.words[i]).css('backgroundColor', 'red');
+				// $(`#wordDiv:contains(this.words[i])`).css('backgroundColor', 'red'); 
+				// $changeBoredom.text(`Boredom: ${this.tomagotchiPet.boredom}`);
+
+
+			}
+
+		}
 
 		// get the randomized word from the word array
-		const randomWord = Math.floor(Math.random() * this.words.length);
-
-		const $userInput = $('#valueOfUserInput').val();
-		// console.log($userInput);
-		if($userInput == this.words[randomWord]) {
-			console.log("this is this.words[randomWord]");
-			console.log(this.words[randomWord]);
-			this.words[randomWord].remove();
-		}
+		
+		// console.log($userInput);  
 
 		// if the word that the user typed matches the current word that is being appended
 		// that word will dissapear from array and from screen
@@ -153,7 +167,6 @@ $('.twoPlayerSelection').on('click', () => {
 
 $('.startButton').on('click', () => {
 	game.startGame();
-	// game.checkWord();
 	$('.startButton').hide();
 	$('.gamePlayAction').show();
 	$('#valueOfUserInput').show();
@@ -165,6 +178,7 @@ $('#valueOfUserInput').on('keypress', function(e) {
 
 	if(keyCode == '13') {
 		const $userInput = $('#valueOfUserInput').val();
+		// game.checkWord();
 
 		console.log($userInput);
 		game.checkWord($userInput)
