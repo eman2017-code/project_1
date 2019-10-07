@@ -90,7 +90,13 @@ const game = {
 	// get the input from when the user types the word that is shown on the screen
 	// if user input == the word, make that word dissapear
 	// keyCode for enter == 13
-
+		$('#valueOfUserInput').keypress(function(e) {
+			let keyCode = (e.keyCode ? e.keyCode : e.which);
+			const $userInput = $('#valueOfUserInput').val();
+			if(keyCode == '13');
+			console.log('hello you pressed the enter key');
+			console.log($userInput);
+		});
 	}
 }
 
