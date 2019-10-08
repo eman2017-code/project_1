@@ -1,9 +1,10 @@
 //create game object that will hold the data for the players
 const game = {
 	round: 1, 
-	lives: 5,
+	// lives: 5,
 	timer: null,
 	score: 0,
+	isGameOver: false,
 	unUsedWords: [], // copy of the words array
 	usedWords: [], // words that have appeared in the screen
 	words: [
@@ -27,7 +28,7 @@ const game = {
 		'deodorant', 'brush', 'white board', 'chalk board', 'receive', 'port', 'deck', 'ship', 
 		'acknowledge', 'realm', 'underwear', 'foot', 'portrait', 'teeth', 'chin', 'book', 'books', 
 		'deorderant', 'brush', 'white board', 'chalk board', 'receive', 'port', 'deck', 'ship', 
-		'realm', 'pound',' particular', 'jump', 'caresses', 'suburban', 'city',
+		'realm', 'pound', 'jump', 'caresses', 'suburban', 'city',
 		'liquid', 'solid', 'chicago', 'obstinate', 'hardest', 'softest', 'vocabulary', 'apathetic', 'arbitrary', 'arrogate'
 	],
 
@@ -44,10 +45,11 @@ const game = {
 		$('body').css('background-image', 'none')
 		$('body').css('background-color', '#324759');
 		$('.gameSection').show();
+		// this.endGame();
 	},
  
 	startGame() {
-		// the timer will start to count from 0 up
+		// // the timer will start to count from 0 up
 		// const interval = setInterval(() => {
 		// 	this.timer ++;
 		// 	$timer = $('.timer');
@@ -55,6 +57,7 @@ const game = {
 		// 	console.log(this.timer);
 		// 	// set a duration for 1 second for the timer
 		// }, 1000);
+
 		this.unUsedWords = this.words.slice();
 		this.showInfo();
 		this.showWord();
@@ -63,7 +66,7 @@ const game = {
 	showWord() {
 		setTimeout(() => {
 			// this is my base case
-			if(this.unUsedWords.length == 0) {
+			if(this.unUsedWords.length ==  0 || this.isGameOver == true) {
 				// stop the function all together
 				return 0;
 			} else {
@@ -76,13 +79,16 @@ const game = {
 				// console.log(this.words[randomWordIndex] + '<--- random word selected from original words array');
 				// put those divs into the word section so they appear for the user
 				$('.words').append($div);
-				$div.slideDown(250);
+				$div.slideDown();
 				// remove it from the words array
 				const wordOnScreen = this.unUsedWords.splice(randomWordIndex, 1)[0];
 				// console.log($wordsOnScreen);
 				this.usedWords.push(wordOnScreen);
 				// then show the next word
-				this.showWord();
+				this.showWord()
+				
+				// endgame
+				this.endGame();
 			}
 			// do this every x seconds
 		}, 1000)
@@ -114,20 +120,22 @@ const game = {
 				this.score += 1;
 				this.showInfo();
 				$wordDiv.remove(); 
-				this.endGame();
 			} 
 		}
 	},
 
 	endGame() {
 		// when one of the divs hit the bottom of the page the game is over
-		const $wordDiv = $('.wordDiv');
+		const $wordsUserTypes = $('.wordsForUserToType');
 		const $gamePlayAction = $('.gamePlayAction');
+
 		
-		console.log($wordDiv.css('height'))
-		if(($wordDiv).css('height') >= ($gamePlayAction).css('height')) {
-			console.log('the game is over');
-		}
+
+		// console.log($wordDiv.css('height'))
+		if($wordsUserTypes.css('height') > $gamePlayAction.css('height')) {
+			console.log('YOU DIED!!!');	
+			this.isGameOver	= true
+		} 
 	}
 }
 
@@ -174,9 +182,6 @@ $('#valueOfUserInput').on('keypress', function(e) {
 		game.checkWord($userInput);
 		$('#valueOfUserInput').val('');
 	} 
-	// else {
-	// 	console.log('the keypress is not working properly either');
-	// }
 });
 
 
