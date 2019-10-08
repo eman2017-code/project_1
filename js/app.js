@@ -66,9 +66,9 @@ const game = {
 	showWord() {
 		setTimeout(() => {
 			// this is my base case
-			if(this.unUsedWords.length ==  0 || this.isGameOver == true) {
+			if(this.unUsedWords.length ===  0 || this.isGameOver === true) {
 				// stop the function all together
-				return 0;
+				return;
 			} else {
 				// get a random word from the copy of original array
 				const randomWordIndex = Math.floor(Math.random() * this.unUsedWords.length);
@@ -85,7 +85,7 @@ const game = {
 				// console.log($wordsOnScreen);
 				this.usedWords.push(wordOnScreen);
 				// then show the next word
-				this.showWord()
+				this.showWord();
 				
 				// endgame
 				this.endGame();
@@ -126,13 +126,9 @@ const game = {
 
 	endGame() {
 		// when one of the divs hit the bottom of the page the game is over
-		const $wordsUserTypes = $('.wordsForUserToType');
-		const $gamePlayAction = $('.gamePlayAction');
-
-		
 
 		// console.log($wordDiv.css('height'))
-		if($wordsUserTypes.css('height') > $gamePlayAction.css('height')) {
+		if($('.wordDiv').length == 15) {
 			console.log('YOU DIED!!!');	
 			this.isGameOver	= true
 		} 
