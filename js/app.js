@@ -4,10 +4,11 @@ const game = {
 	lives: 5,
 	timer: null,
 	score: 0,
-	wordsAppeared: [],
-	words: [
-		'Eman', 'Fatima', 'Temo'
+	words: [ // this is my original array
+		'word1', 'word2', 'word3',
 	],
+	unUsedWords: [], // copy of the words array
+	usedWords: [], // words that have appeared in the screen
 
 	//'afternoon', 'tamagotchi',
 		// 'coding', 'amazing', 'wonderful', 'computer', 'general', 'assembly', 'crazy',
@@ -29,7 +30,7 @@ const game = {
 		// 'deorderant', 'brush', 'white board', 'chalk board', 'receive', 'port', 'deck', 'ship', 
 		// 'acknowledge', 'realm', 'underwear', 'foot', 'portrait', 'teeth', 'chin', 'book', 'books', 
 		// 'deorderant', 'brush', 'white board', 'chalk board', 'receive', 'port', 'deck', 'ship', 
-		// 'acknowledge', 'realm', 'pound',' particular', 'jump', 'caresses', 'suburban', 'city',
+		// 'realm', 'pound',' particular', 'jump', 'caresses', 'suburban', 'city',
 		// 'liquid', 'solid', 'chicago', 'obstinate', 'hardest', 'softest', 'vocabulary', 'apathetic', 'arbitrary', 'arrogate'
 
 	collectPlayerInfo() {
@@ -63,29 +64,39 @@ const game = {
 	},
 
 	showWord() {
-		// append an element to the '.words' span in the HTML 
+		// make a copy of the original array
+		console.log(this.words + ' <--- this is the original array');
+
+		this.unUsedWords.push(this.words.slice());
+
+		console.log(this.unUsedWords + ' <--- this is the copy of the original array');
 		setTimeout(() => {
 			// this is my base case
-			if(this.words.length === 0) {
+			if(this.unUsedWords.length === 0) {
+				// stop the function all together
 				return 0;
 			} else {
-				// get a random word
+				// get a random word from the original array
 				const randomWordIndex = Math.floor(Math.random() * this.words.length);
-				// make this show up on the page for the user to see 
+				// create a div with an id 
 				const $div = $('<div id="wordDiv"></div>');
+
 				// put in the word that was randomly generated into the div
 				$div.text(this.words[randomWordIndex]);
+				console.log(this.words[randomWordIndex] + '<--- random word selected from original words array');
+
 				// put those divs into the word section so they appear for the user
 				$('.words').append($div);
-				// put the one has appeared for the user into a seperate array so that it will not show up again
-				this.wordsAppeared.push(this.words[randomWordIndex]);
-				// remove from original array
+
+				// remove it from the words array
 				this.words.splice(randomWordIndex, 1);
+				console.log(this.words + ' <--- this is the words array after splice');
+				console.log(this.unUsedWords + ' <--- this is the copy of the original array');
 				// then show the next word
-				this.showWord()
+				this.showWord();
 			}
-			// do this every 5 seconds
-		}, 5000)
+			// do this every 1 second
+		}, 7000)
 
 	},
 
@@ -94,7 +105,7 @@ const game = {
 		$lives = $('.lives');
 		$lives.html('Lives: ' + this.lives);
 		if($lives <= 0) {
-			console.log('GAME OVER');
+			// console.log('GAME OVER');
 		}
 
 		// the user will be able to see which round they are on
@@ -109,26 +120,18 @@ const game = {
 
 	// this function will pass in the user's input
 	checkWord(userInput) {
-		// loop thru current words that are in the array
+
 		for(let i = 0; i < this.words.length; i++) {
-			// check input against all the words on the screen
-			if(userInput == this.words[i]) {
-				console.log('these words match');
-				// find the div on the page with that word in it, then remove it 
-				const $wordDiv = $(`#wordDiv:contains(${this.words[i]})`);
-				$wordDiv.css("backgroundColor", "red")
-				// $wordDiv.remove();
-				// $(userInput).val('');
-				// console.log($wordDiv);
-				// take it out of the original array
-				this.words.splice(i, 1); 
-				// $wordDiv:contains(this.words[i]).css('backgroundColor', 'red');
-				// $(`#wordDiv:contains(this.words[i])`).css('backgroundColor', 'red'); 
+			// console.log('the loop is looping correctly');
+			console.log(this.words);
 
-			} else {
-				console.log('this function is not working');
-			}
-
+			// if(userInput == this.words[i]) {
+			// 	console.log('Correct')
+			// 	console.log('these words match');
+			// 	const $wordDiv = $(`#wordDiv:contains(${this.words[i]})`);
+			// 	$wordDiv.css("backgroundColor", "red")
+			// 	this.words.splice(i, 1); 
+			// } 
 		}
 	},
 }
@@ -163,20 +166,21 @@ $('.startButton').on('click', () => {
 	$('#valueOfUserInput').show();
 });
 
-$('#valueOfUserInput').on('keypress', function(e) {
+$('#valueOfUserInput').on('keydown', function(e) {
 	// keyCode for enter == 13
-	let keyCode = (e.keyCode ? e.keyCode : e.which);
+	// let keyCode = (e.keyCode ? e.keyCode : e.which);
+	let keyCode = e.keyCode;
+	const $userInput = $('#valueOfUserInput').val();
 
 	if(keyCode == '13') {
-		const $userInput = $('#valueOfUserInput').val();
-
-		// console.log($userInput);
+		console.log('The enter button is working properly');
+		// invoke the checkWord method
 		game.checkWord($userInput);
-
-		$('#valueOfUserInput').val('')
-	}
-	// console.log('hello you pressed the enter key');
-	// check to see if the userInput == to the current word that is on the screen
+		// $('#valueOfUserInput').val('');
+	} 
+	// else {
+	// 	console.log('the keypress is not working properly either');
+	// }
 });
 
 
