@@ -162,9 +162,11 @@ h5 {
 
 .gamePlayAction {
 	background-color: #F2F2F2;
-	width: 30%;
-	height: 80vh;
+	width: 35%;
+	height: 70vh;
 	display: none;
+	margin-right: auto;
+	margin-left: auto;
 }
 
 .wordDiv {
@@ -172,8 +174,7 @@ h5 {
 	width: 20%;
 	padding: 1%;
 	/*margin: 1%;*/
-	margin-right: auto;
-	margin-left: auto;
+	/*text-align: center;*/
 	/*background-color: #A6A6A6;*/
 	border-radius: 6px;
 	opacity: 0.7;

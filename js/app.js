@@ -129,7 +129,11 @@ const game = {
 
 		// console.log($wordDiv.css('height'))
 		if($('.wordDiv').length == 15) {
-			console.log('YOU DIED!!!');	
+			const $h1 = $('<h1></h1>');
+			const $div = $('.gameOver')
+			$h1.html('YOU ARE DEAD!!!!')
+			$div.append($h1);
+			// console.log('YOU DIED!!!');	
 			this.isGameOver	= true
 		} 
 	}
