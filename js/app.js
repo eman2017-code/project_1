@@ -6,29 +6,31 @@ const game = {
 	score: 0,
 	wordsAppeared: [],
 	words: [
-		'hello', 'goodbye', 'evening', 'afternoon', 'tamagotchi',
-		'coding', 'amazing', 'wonderful', 'computer', 'general', 'assembly', 'crazy',
-		'immaculate', 'bitter', 'iphone', 'time', 'coffee', 'javascript', 'ajax', 'protocol', 'water', 
-		'prestidigitation', 'charger', 'keyboard', 'shoe', 'shoelace', 
-		'belt', 'closet', 'inside', 'outside', 'exciting', 'wow', 'according', 'martin', 
-		'specialist', 'bioinformatics', 'biology', 'chemistry', 'popcorn', 'potatoe', 'worse', 'oblivious', 'young', 
-		'innocent', 'because', 'constitute', 'johnny', 'abject', 'aberration', 'abnegation', 'accost',  
-		'acceration', 'alias', 'smirk', 'divergents', 'hunger', 'games', 'key', 'piano', 'cup', 
-		'morning', 'tissue', 'flask', 'fire','cord', 'floor', 'wood', 'headphones', 'earjack', 
-		'heater', 'cooler', 'cologne', 'watch', 'apple', 'android', 'adidas', 'nike', 
-		'acceration', 'cologne', 'watch', 'apple', 'android', 'exam', 'test', 'spider', 'arachnid', 
-		'attack', 'warning', 'hat', 'snow', 'examine', 'sneaker', 'cover', 'candle', 'fire', 'acceration', 'alias', 'smirk',
-		'cologne', 'watch', 'apple', 'android', 'adidas', 'nike', 'backpack', 'lipstick', 'exam', 'test', 'spider', 
-		'arachnid', 'wow', 'attack', 'warning', 'hat', 'snow','examine', 'sneaker', 'cover', 'candle', 'fire', 
-		'adidas', 'nike',,'nike', 'backpack', 'lipstick', 'divergents', 'hunger', 'games', 
-		'key', 'piano', 'cup','ocean', 'camera', 'recording', 'precipitation', 
-		'interesting', 'execution', 'socks','underwear', 'foot', 'portrait', 'teeth', 'chin', 'book', 'books', 
-		'deorderant', 'brush', 'white board', 'chalk board', 'receive', 'port', 'deck', 'ship', 
-		'acknowledge', 'realm', 'underwear', 'foot', 'portrait', 'teeth', 'chin', 'book', 'books', 
-		'deorderant', 'brush', 'white board', 'chalk board', 'receive', 'port', 'deck', 'ship', 
-		'acknowledge', 'realm', 'pound',' particular', 'jump', 'caresses', 'suburban', 'city',
-		'liquid', 'solid', 'chicago', 'obstinate', 'hardest', 'softest', 'vocabulary', 'apathetic', 'arbitrary', 'arrogate'
+		'Eman', 'Fatima', 'Temo'
 	],
+
+	//'afternoon', 'tamagotchi',
+		// 'coding', 'amazing', 'wonderful', 'computer', 'general', 'assembly', 'crazy',
+		// 'immaculate', 'bitter', 'iphone', 'time', 'coffee', 'javascript', 'ajax', 'protocol', 'water', 
+		// 'prestidigitation', 'charger', 'keyboard', 'shoe', 'shoelace', 
+		// 'belt', 'closet', 'inside', 'outside', 'exciting', 'wow', 'according', 'martin', 
+		// 'specialist', 'bioinformatics', 'biology', 'chemistry', 'popcorn', 'potatoe', 'worse', 'oblivious', 'young', 
+		// 'innocent', 'because', 'constitute', 'johnny', 'abject', 'aberration', 'abnegation', 'accost',  
+		// 'acceration', 'alias', 'smirk', 'divergents', 'hunger', 'games', 'key', 'piano', 'cup', 
+		// 'morning', 'tissue', 'flask', 'fire','cord', 'floor', 'wood', 'headphones', 'earjack', 
+		// 'heater', 'cooler', 'cologne', 'watch', 'apple', 'android', 'adidas', 'nike', 
+		// 'acceration', 'cologne', 'watch', 'apple', 'android', 'exam', 'test', 'spider', 'arachnid', 
+		// 'attack', 'warning', 'hat', 'snow', 'examine', 'sneaker', 'cover', 'candle', 'fire', 'acceration', 'alias', 'smirk',
+		// 'cologne', 'watch', 'apple', 'android', 'adidas', 'nike', 'backpack', 'lipstick', 'exam', 'test', 'spider', 
+		// 'arachnid', 'wow', 'attack', 'warning', 'hat', 'snow','examine', 'sneaker', 'cover', 'candle', 'fire', 
+		// 'adidas', 'nike',,'nike', 'backpack', 'lipstick', 'divergents', 'hunger', 'games', 
+		// 'key', 'piano', 'cup','ocean', 'camera', 'recording', 'precipitation', 
+		// 'interesting', 'execution', 'socks','underwear', 'foot', 'portrait', 'teeth', 'chin', 'book', 'books', 
+		// 'deorderant', 'brush', 'white board', 'chalk board', 'receive', 'port', 'deck', 'ship', 
+		// 'acknowledge', 'realm', 'underwear', 'foot', 'portrait', 'teeth', 'chin', 'book', 'books', 
+		// 'deorderant', 'brush', 'white board', 'chalk board', 'receive', 'port', 'deck', 'ship', 
+		// 'acknowledge', 'realm', 'pound',' particular', 'jump', 'caresses', 'suburban', 'city',
+		// 'liquid', 'solid', 'chicago', 'obstinate', 'hardest', 'softest', 'vocabulary', 'apathetic', 'arbitrary', 'arrogate'
 
 	collectPlayerInfo() {
 		//collect the level selected and chosen gamertag of the user
@@ -71,20 +73,19 @@ const game = {
 				const randomWordIndex = Math.floor(Math.random() * this.words.length);
 				// make this show up on the page for the user to see 
 				const $div = $('<div id="wordDiv"></div>');
+				// put in the word that was randomly generated into the div
 				$div.text(this.words[randomWordIndex]);
-				// I need to add an animation here for how the words will appear
+				// put those divs into the word section so they appear for the user
 				$('.words').append($div);
+				// put the one has appeared for the user into a seperate array so that it will not show up again
 				this.wordsAppeared.push(this.words[randomWordIndex]);
-				// remove from array
+				// remove from original array
 				this.words.splice(randomWordIndex, 1);
-
+				// then show the next word
 				this.showWord()
 			}
-
-			// track words currently on screen in an array in game obj add this word to array
-			// -- will be used to compare by checkWord()
-
-		}, 1000)
+			// do this every 5 seconds
+		}, 5000)
 
 	},
 
@@ -106,39 +107,29 @@ const game = {
 
 	},
 
+	// this function will pass in the user's input
 	checkWord(userInput) {
-		// check input against all the words on the screen
-		// loop thru words
+		// loop thru current words that are in the array
 		for(let i = 0; i < this.words.length; i++) {
-			const $userInput = $('#valueOfUserInput').val();
-			if($userInput == this.words[i]) {
-				// console.log(typeof this.words[i]);
-				// console.log('that is correct');
+			// check input against all the words on the screen
+			if(userInput == this.words[i]) {
+				console.log('these words match');
 				// find the div on the page with that word in it, then remove it 
 				const $wordDiv = $(`#wordDiv:contains(${this.words[i]})`);
-				// $wordDiv.css("backgroundColor", "red")
-				$wordDiv.remove();
+				$wordDiv.css("backgroundColor", "red")
+				// $wordDiv.remove();
+				// $(userInput).val('');
 				// console.log($wordDiv);
 				// take it out of the original array
-				// this.words.splice(i, 1); 
+				this.words.splice(i, 1); 
 				// $wordDiv:contains(this.words[i]).css('backgroundColor', 'red');
 				// $(`#wordDiv:contains(this.words[i])`).css('backgroundColor', 'red'); 
-				// $changeBoredom.text(`Boredom: ${this.tomagotchiPet.boredom}`);
 
-
+			} else {
+				console.log('this function is not working');
 			}
 
 		}
-
-		// get the randomized word from the word array
-		
-		// console.log($userInput);  
-
-		// if the word that the user typed matches the current word that is being appended
-		// that word will dissapear from array and from screen
-
-
-
 	},
 }
 
@@ -178,10 +169,11 @@ $('#valueOfUserInput').on('keypress', function(e) {
 
 	if(keyCode == '13') {
 		const $userInput = $('#valueOfUserInput').val();
-		// game.checkWord();
 
-		console.log($userInput);
-		game.checkWord($userInput)
+		// console.log($userInput);
+		game.checkWord($userInput);
+
+		$('#valueOfUserInput').val('')
 	}
 	// console.log('hello you pressed the enter key');
 	// check to see if the userInput == to the current word that is on the screen
