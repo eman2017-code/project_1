@@ -167,7 +167,7 @@ h5 {
 	display: none;
 }
 
-#wordDiv {
+.wordDiv {
 	border: 1px solid black;
 	width: 10%;
 	padding: 1%;

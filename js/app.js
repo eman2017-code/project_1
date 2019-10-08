@@ -4,34 +4,33 @@ const game = {
 	lives: 5,
 	timer: null,
 	score: 0,
-	words: [ // this is my original array
-		'word1', 'word2', 'word3',
-	],
+
 	unUsedWords: [], // copy of the words array
 	usedWords: [], // words that have appeared in the screen
-
-	//'afternoon', 'tamagotchi',
-		// 'coding', 'amazing', 'wonderful', 'computer', 'general', 'assembly', 'crazy',
-		// 'immaculate', 'bitter', 'iphone', 'time', 'coffee', 'javascript', 'ajax', 'protocol', 'water', 
-		// 'prestidigitation', 'charger', 'keyboard', 'shoe', 'shoelace', 
-		// 'belt', 'closet', 'inside', 'outside', 'exciting', 'wow', 'according', 'martin', 
-		// 'specialist', 'bioinformatics', 'biology', 'chemistry', 'popcorn', 'potatoe', 'worse', 'oblivious', 'young', 
-		// 'innocent', 'because', 'constitute', 'johnny', 'abject', 'aberration', 'abnegation', 'accost',  
-		// 'acceration', 'alias', 'smirk', 'divergents', 'hunger', 'games', 'key', 'piano', 'cup', 
-		// 'morning', 'tissue', 'flask', 'fire','cord', 'floor', 'wood', 'headphones', 'earjack', 
-		// 'heater', 'cooler', 'cologne', 'watch', 'apple', 'android', 'adidas', 'nike', 
-		// 'acceration', 'cologne', 'watch', 'apple', 'android', 'exam', 'test', 'spider', 'arachnid', 
-		// 'attack', 'warning', 'hat', 'snow', 'examine', 'sneaker', 'cover', 'candle', 'fire', 'acceration', 'alias', 'smirk',
-		// 'cologne', 'watch', 'apple', 'android', 'adidas', 'nike', 'backpack', 'lipstick', 'exam', 'test', 'spider', 
-		// 'arachnid', 'wow', 'attack', 'warning', 'hat', 'snow','examine', 'sneaker', 'cover', 'candle', 'fire', 
-		// 'adidas', 'nike',,'nike', 'backpack', 'lipstick', 'divergents', 'hunger', 'games', 
-		// 'key', 'piano', 'cup','ocean', 'camera', 'recording', 'precipitation', 
-		// 'interesting', 'execution', 'socks','underwear', 'foot', 'portrait', 'teeth', 'chin', 'book', 'books', 
-		// 'deorderant', 'brush', 'white board', 'chalk board', 'receive', 'port', 'deck', 'ship', 
-		// 'acknowledge', 'realm', 'underwear', 'foot', 'portrait', 'teeth', 'chin', 'book', 'books', 
-		// 'deorderant', 'brush', 'white board', 'chalk board', 'receive', 'port', 'deck', 'ship', 
-		// 'realm', 'pound',' particular', 'jump', 'caresses', 'suburban', 'city',
-		// 'liquid', 'solid', 'chicago', 'obstinate', 'hardest', 'softest', 'vocabulary', 'apathetic', 'arbitrary', 'arrogate'
+	words: [
+	'afternoon', 'tamagotchi',
+		'coding', 'amazing', 'wonderful', 'computer', 'general', 'assembly', 'crazy',
+		'immaculate', 'bitter', 'iphone', 'time', 'coffee', 'javascript', 'ajax', 'protocol', 'water', 
+		'prestidigitation', 'charger', 'keyboard', 'shoe', 'shoelace', 
+		'belt', 'closet', 'inside', 'outside', 'exciting', 'wow', 'according', 'martin', 
+		'specialist', 'bioinformatics', 'biology', 'chemistry', 'popcorn', 'potatoe', 'worse', 'oblivious', 'young', 
+		'innocent', 'because', 'constitute', 'johnny', 'abject', 'aberration', 'abnegation', 'accost',  
+		'acceration', 'alias', 'smirk', 'divergents', 'hunger', 'games', 'key', 'piano', 'cup', 
+		'morning', 'tissue', 'flask', 'fire','cord', 'floor', 'wood', 'headphones', 'earjack', 
+		'heater', 'cooler', 'cologne', 'watch', 'apple', 'android', 'adidas', 'nike', 
+		'acceration', 'cologne', 'watch', 'apple', 'android', 'exam', 'test', 'spider', 'arachnid', 
+		'attack', 'warning', 'hat', 'snow', 'examine', 'sneaker', 'cover', 'candle', 'fire', 'acceration', 'alias', 'smirk',
+		'cologne', 'watch', 'apple', 'android', 'adidas', 'nike', 'backpack', 'lipstick', 'exam', 'test', 'spider', 
+		'arachnid', 'wow', 'attack', 'warning', 'hat', 'snow','examine', 'sneaker', 'cover', 'candle', 'fire', 
+		'adidas', 'nike',,'nike', 'backpack', 'lipstick', 'divergents', 'hunger', 'games', 
+		'key', 'piano', 'cup','ocean', 'camera', 'recording', 'precipitation', 
+		'interesting', 'execution', 'socks','underwear', 'foot', 'portrait', 'teeth', 'chin', 'book', 'books', 
+		'deorderant', 'brush', 'white board', 'chalk board', 'receive', 'port', 'deck', 'ship', 
+		'acknowledge', 'realm', 'underwear', 'foot', 'portrait', 'teeth', 'chin', 'book', 'books', 
+		'deorderant', 'brush', 'white board', 'chalk board', 'receive', 'port', 'deck', 'ship', 
+		'realm', 'pound',' particular', 'jump', 'caresses', 'suburban', 'city',
+		'liquid', 'solid', 'chicago', 'obstinate', 'hardest', 'softest', 'vocabulary', 'apathetic', 'arbitrary', 'arrogate'
+	],
 
 	collectPlayerInfo() {
 		//collect the level selected and chosen gamertag of the user
@@ -57,46 +56,45 @@ const game = {
 		// 	console.log(this.timer);
 		// 	// set a duration for 1 second for the timer
 		// }, 1000);
-
+		this.unUsedWords = this.words.slice();
 		this.showInfo();
 		this.showWord();
 
 	},
 
 	showWord() {
-		// make a copy of the original array
-		console.log(this.words + ' <--- this is the original array');
 
-		this.unUsedWords.push(this.words.slice());
-
-		console.log(this.unUsedWords + ' <--- this is the copy of the original array');
+		// console.log(this.unUsedWords + ' <--- this is the copy of the original array');
 		setTimeout(() => {
 			// this is my base case
-			if(this.unUsedWords.length === 0) {
+			if(this.unUsedWords.length == 0) {
 				// stop the function all together
 				return 0;
 			} else {
-				// get a random word from the original array
-				const randomWordIndex = Math.floor(Math.random() * this.words.length);
+				// get a random word from the copy of original array
+				const randomWordIndex = Math.floor(Math.random() * this.unUsedWords.length);
 				// create a div with an id 
-				const $div = $('<div id="wordDiv"></div>');
+				const $div = $('<div class="wordDiv"></div>');
 
 				// put in the word that was randomly generated into the div
-				$div.text(this.words[randomWordIndex]);
-				console.log(this.words[randomWordIndex] + '<--- random word selected from original words array');
+				$div.text(this.unUsedWords[randomWordIndex]);
+				// console.log(this.words[randomWordIndex] + '<--- random word selected from original words array');
 
 				// put those divs into the word section so they appear for the user
 				$('.words').append($div);
 
 				// remove it from the words array
-				this.words.splice(randomWordIndex, 1);
-				console.log(this.words + ' <--- this is the words array after splice');
-				console.log(this.unUsedWords + ' <--- this is the copy of the original array');
+				const wordOnScreen = this.unUsedWords.splice(randomWordIndex, 1)[0];
+				// console.log($wordsOnScreen);
+				this.usedWords.push(wordOnScreen);
+				// console.log(wordOnScreen);
+				// console.log(this.words + ' <--- this is the words array after splice');
+				// console.log(this.unUsedWords + ' <--- this is the copy of the original array');
 				// then show the next word
 				this.showWord();
 			}
-			// do this every 1 second
-		}, 7000)
+			// do this every x seconds
+		}, 3000)
 
 	},
 
@@ -120,20 +118,26 @@ const game = {
 
 	// this function will pass in the user's input
 	checkWord(userInput) {
-
-		for(let i = 0; i < this.words.length; i++) {
+		// loop through the usedWords array
+		for(let i = 0; i < this.usedWords.length; i++) {
 			// console.log('the loop is looping correctly');
-			console.log(this.words);
 
-			// if(userInput == this.words[i]) {
-			// 	console.log('Correct')
-			// 	console.log('these words match');
-			// 	const $wordDiv = $(`#wordDiv:contains(${this.words[i]})`);
-			// 	$wordDiv.css("backgroundColor", "red")
-			// 	this.words.splice(i, 1); 
-			// } 
+			// correct guess
+			if(userInput == this.usedWords[i]) {
+				console.log('these usedWords match');
+
+				const $wordDiv = $(`.wordDiv:contains(${this.usedWords[i]})`);
+				console.log($wordDiv);
+				// $wordDiv.css("backgroundColor", "red")
+				$wordDiv.remove();
+
+				// clear the form w/ jquery
+			} 
 		}
-	},
+		console.log(this.usedWords);
+		console.log(this.unUsedWords);
+
+	}
 }
 
 // EVENT LISTENERS
@@ -166,17 +170,18 @@ $('.startButton').on('click', () => {
 	$('#valueOfUserInput').show();
 });
 
-$('#valueOfUserInput').on('keydown', function(e) {
+$('#valueOfUserInput').on('keypress', function(e) {
 	// keyCode for enter == 13
 	// let keyCode = (e.keyCode ? e.keyCode : e.which);
 	let keyCode = e.keyCode;
 	const $userInput = $('#valueOfUserInput').val();
 
 	if(keyCode == '13') {
-		console.log('The enter button is working properly');
+		// console.log('The enter button is working properly');
+		console.log($userInput);
 		// invoke the checkWord method
 		game.checkWord($userInput);
-		// $('#valueOfUserInput').val('');
+		$('#valueOfUserInput').val('');
 	} 
 	// else {
 	// 	console.log('the keypress is not working properly either');
