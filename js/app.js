@@ -7,7 +7,7 @@ const game = {
 	unUsedWords: [], // copy of the words array
 	usedWords: [], // words that have appeared in the screen
 	words: [
-	'afternoon', 'tamagotchi',
+		'afternoon', 'tamagotchi',
 		'coding', 'amazing', 'wonderful', 'computer', 'general', 'assembly', 'crazy',
 		'immaculate', 'bitter', 'iphone', 'time', 'coffee', 'javascript', 'ajax', 'protocol', 'water', 
 		'prestidigitation', 'charger', 'keyboard', 'shoe', 'shoelace', 
@@ -58,7 +58,6 @@ const game = {
 		this.unUsedWords = this.words.slice();
 		this.showInfo();
 		this.showWord();
-
 	},
 
 	showWord() {
@@ -73,10 +72,11 @@ const game = {
 				// create a div with an id 
 				const $div = $('<div class="wordDiv"></div>');
 				// put in the word that was randomly generated into the div
-				$div.text(this.unUsedWords[randomWordIndex]);
+				$div.text(this.unUsedWords[randomWordIndex]).css('display', 'none');
 				// console.log(this.words[randomWordIndex] + '<--- random word selected from original words array');
 				// put those divs into the word section so they appear for the user
 				$('.words').append($div);
+				$div.slideDown(250);
 				// remove it from the words array
 				const wordOnScreen = this.unUsedWords.splice(randomWordIndex, 1)[0];
 				// console.log($wordsOnScreen);
@@ -85,7 +85,7 @@ const game = {
 				this.showWord();
 			}
 			// do this every x seconds
-		}, 2000)
+		}, 1000)
 	},
 
 	showInfo() {
@@ -95,9 +95,6 @@ const game = {
 		if($lives <= 0) {
 			// console.log('GAME OVER');
 		}
-		// the user will be able to see which round they are on
-		$rounds = $('.rounds');
-		$rounds.html('Round: ' + this.round);
 
 		// the user will be able to see their score
 		$score = $('.score');
@@ -111,12 +108,25 @@ const game = {
 		for(let i = 0; i < this.usedWords.length; i++) {
 			// correct guess
 			if(userInput == this.usedWords[i]) {
-				console.log('these usedWords match');
 				const $wordDiv = $(`.wordDiv:contains(${this.usedWords[i]})`);
-				console.log($wordDiv);
 				// clear the form w/ jquery
+				// this.addToScore();
+				this.score += 1;
+				this.showInfo();
 				$wordDiv.remove(); 
+				this.endGame();
 			} 
+		}
+	},
+
+	endGame() {
+		// when one of the divs hit the bottom of the page the game is over
+		const $wordDiv = $('.wordDiv');
+		const $gamePlayAction = $('.gamePlayAction');
+		
+		console.log($wordDiv.css('height'))
+		if(($wordDiv).css('height') >= ($gamePlayAction).css('height')) {
+			console.log('the game is over');
 		}
 	}
 }
