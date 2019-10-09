@@ -1,6 +1,6 @@
 body {
-	margin: 2%;
-	/*background-image: url('https://media.giphy.com/media/3o7aCTfyhYawdOXcFW/giphy.gif');*/
+	margin: 5%;
+	background-image: url('https://media.giphy.com/media/3o7aCTfyhYawdOXcFW/giphy.gif');
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
@@ -177,6 +177,33 @@ h5 {
 	opacity: 0.7;
 }
 
+.ranks {
+	background-color: #F2F2F2;
+	border: 10px solid #324759;
+	padding: 3%;
+	width: 50%;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+li {
+	margin: 6% 0;
+}
+
+#startOverButton {
+	background-color: #0D0D0D;
+    color: #F2F2F2;
+    padding: 2%;
+    margin: 0.5%;
+    width: 10%;
+    height: 25%;
+    position: sticky;
+    text-align: center;
+}
+
+.globalLeaderBoard {
+	display: none;
+}
 
 
 

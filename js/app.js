@@ -9,7 +9,7 @@ const game = {
 	unUsedWords: [], // copy of the words array
 	usedWords: [], // words that have appeared in the screen
 	words: [
-		'afternoon', 'tamagotchi',
+		'afternoon', 'tamagotchi', 'that', 'this',
 		'coding', 'amazing', 'wonderful', 'computer', 'general', 'assembly', 'crazy',
 		'immaculate', 'bitter', 'iphone', 'time', 'coffee', 'javascript', 'ajax', 'protocol', 'water', 
 		'prestidigitation', 'charger', 'keyboard', 'shoe', 'shoelace', 'word',
@@ -21,8 +21,8 @@ const game = {
 		'heater', 'cooler', 'apple', 'android', 'acceration', 'exam', 'test', 'spider', 'attack', 'hat', 
 		'snow', 'examine', 'cover', 'candle','cologne', 'watch','backpack', 'lipstick', 'arachnid', 'wow', 'warning', 
 		'sneaker', 'adidas', 'nike', 'key','ocean', 'camera', 'recording', 'precipitation', 
-		'interesting', 'execution', 'socks', 'teeth', 'chin', 'book', 'books', 'deodorant', 'chalk board', 'receive', 
-		'port', 'deck', 'ship', 'acknowledge', 'underwear', 'foot', 'portrait', 'deorderant', 'brush', 'white board', 
+		'interesting', 'execution', 'socks', 'teeth', 'chin', 'book', 'books', 'deodorant', 'receive', 
+		'port', 'deck', 'ship', 'acknowledge', 'underwear', 'foot', 'portrait', 'brush', 
 		'realm', 'pound', 'jump', 'caresses', 'suburban', 'city','liquid', 'solid', 'chicago', 
 		'obstinate', 'hardest', 'softest', 'vocabulary', 'apathetic', 'arbitrary', 'arrogate', 'crazy', 'zoo'
 	],
@@ -43,6 +43,8 @@ const game = {
 		$('.gameSection').show();
 		// this.showWord($gamerDifficulty);
 	},
+
+	//make timer function
  
 	startGame() {
 
@@ -57,17 +59,19 @@ const game = {
 			this.gamerTime += 1000;
 		}
 
-		// the timer will start to count from 0 up
-		const interval = setInterval(() => {
-			this.timer ++;
-			$timer = $('.timer');
-			$timer.html('Timer: ' + this.timer)
-			console.log(this.timer);
-			// set a duration for 1 second for the timer
-			if($('.wordDiv').length === 15) {
-				clearInterval(interval);
-			}
-		}, 1000);
+		// // the timer will start to count from 0 up
+		// const interval = setInterval(() => {
+		// 	this.timer ++;
+		// 	$timer = $('.timer');
+		// 	$timer.html('Timer: ' + this.timer)
+		// 	// console.log(this.timer);
+		// 	// set a duration for 1 second for the timer
+		// 	if($('.wordDiv').length === 15) {
+		// 		clearInterval(interval);
+		// 	}
+		// }, 1000);
+
+		// call timer function in here
 
 		this.unUsedWords = this.words.slice();
 		this.showInfo();
@@ -139,18 +143,38 @@ const game = {
 	},
 
 	endGame() {
+		// get the gamerTag the user entered originally 
+		const $gamerTag = $('#input-box').val();
+
 		// when one of the divs hit the bottom of the page the game is over
-		if($('.wordDiv').length == 18) {
+		if($('.wordDiv').length == 17) {
 			// make an h1 tag
 			const $h1 = $('<h1></h1>');
 			// get the div
 			const $div = $('.gameOver')
 			// have the h1 say this
-			$h1.html('YOU ARE DEAD!!!!' + '\n' + 'You have a score of ' + this.score)
+			$h1.html($gamerTag + ': You scored ' + this.score)
 			// append the h1 to the div
 			$div.append($h1);
 			// change the state of the game
 			this.isGameOver	= true;
+
+			// make the input box go away
+			$('#valueOfUserInput').hide();
+
+			// make a button with the id start over FUNCTION------
+			
+			// const $startOverButton = $('<button id="startOverButton">START OVER?</button>');
+			// $('.startOver').append($startOverButton);
+
+			// if($('#startOverButton').on('click', () => {
+			// 	// reset the score to 0
+			// 	this.score = 0;
+			// 	// make the entire game reload again
+			// 	this.startGame();
+			// 	//
+			// 	$('.wordDiv').empty();
+			// }));
 		} 
 	}
 }
@@ -167,15 +191,7 @@ $('form').on('submit', (e) => {
 // user will be able to choose one or two players
 $('.onePlayerSelection').on('click', () => {
 	$('.onePlayerSelection').hide();
-	$('.twoPlayerSelection').hide();
 	$('.createProfile').css('display', 'block');
-});
-
-// user will be able to choose one or two players
-$('.twoPlayerSelection').on('click', () => {
-	$('.onePlayerSelection').hide();
-	$('.twoPlayerSelection').hide();
-	$('.createProfile').show();
 });
 
 $('.startButton').on('click', () => {
