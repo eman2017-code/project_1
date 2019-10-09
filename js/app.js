@@ -11,7 +11,7 @@ const game = {
 		'afternoon', 'tamagotchi',
 		'coding', 'amazing', 'wonderful', 'computer', 'general', 'assembly', 'crazy',
 		'immaculate', 'bitter', 'iphone', 'time', 'coffee', 'javascript', 'ajax', 'protocol', 'water', 
-		'prestidigitation', 'charger', 'keyboard', 'shoe', 'shoelace', 
+		'prestidigitation', 'charger', 'keyboard', 'shoe', 'shoelace', 'word',
 		'belt', 'closet', 'inside', 'outside', 'exciting', 'according', 'martin', 
 		'specialist', 'bioinformatics', 'biology', 'chemistry', 'popcorn', 'potatoe', 'worse', 'oblivious', 'young', 
 		'innocent', 'because', 'constitute', 'johnny', 'abject', 'aberration', 'abnegation', 'accost',  
@@ -131,11 +131,16 @@ const game = {
 		// when one of the divs hit the bottom of the page the game is over
 
 		if($('.wordDiv').length == 15) {
+			// make an h1 tag
 			const $h1 = $('<h1></h1>');
+			// get the div
 			const $div = $('.gameOver')
+			// have the h1 say this
 			$h1.html('YOU ARE DEAD!!!!')
+			// append the h1 to the div
 			$div.append($h1);
-			// console.log('YOU DIED!!!');	
+			// change the state of the game
+			console.log('The first player has a score of ' + this.score);
 			this.isGameOver	= true;
 		} 
 	}
