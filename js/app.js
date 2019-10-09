@@ -162,21 +162,24 @@ const game = {
 
 			// make the input box go away
 			$('#valueOfUserInput').hide();
-
-			// make a button with the id start over FUNCTION------
-
-			// const $startOverButton = $('<button id="startOverButton">START OVER?</button>');
-			// $('.startOver').append($startOverButton);
-
-			// if($('#startOverButton').on('click', () => {
-			// 	// reset the score to 0
-			// 	this.score = 0;
-			// 	// make the entire game reload again
-			// 	this.startGame();
-			// 	//
-			// 	$('.wordDiv').empty();
-			// }));
+			this.restartGame();
 		} 
+	}, 
+
+	restartGame() {
+		// make a button with the id startOver
+		const $startOverButton = $('<button id="startOverButton">START OVER</button>');
+		// put in the div
+		$('.startOver').append($startOverButton);
+
+		if($('startOverButton').on('click', () => {
+			// reset the score to 0
+			this.score = 0;
+			// empty out the word div
+			$('.wordDiv').empty();
+			// show the word again
+			this.showWord();
+		}));
 	}
 }
 
