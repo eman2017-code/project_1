@@ -4,6 +4,7 @@ const game = {
 	// lives: 5,
 	timer: null,
 	score: 0,
+	gamerTime: null,
 	isGameOver: false,
 	unUsedWords: [], // copy of the words array
 	usedWords: [], // words that have appeared in the screen
@@ -49,12 +50,18 @@ const game = {
 		console.log($gamerDifficulty);
 
 		// have the words show up slower if the user chooses easy
+		console.log(this.gamerTime);
 		if($('#difficultyButton').val() == 'easy') {
-			console.log('this is easy mode');
+			this.gamerTime += 4000;
+			// console.log(this.gamerTime);
+			// console.log('this is easy mode');
 		} else if ($('#difficultyButton').val() == 'medium') {
-			console.log('this is medium mode');
+			// console.log('this is medium mode');
+			this.gamerTime += 2000;
+			// console.log(this.gamerTime);
 		} else {
-			console.log('this is the default hard mode');
+			// console.log('this is the default hard mode');
+			this.gamerTime += 1000;
 		}
 
 		// the timer will start to count from 0 up
@@ -104,7 +111,7 @@ const game = {
 				// endgame
 				this.endGame();
 			}
-		}, 1000)
+		}, this.gamerTime)
 	},
 
 	showInfo() {
