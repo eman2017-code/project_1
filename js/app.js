@@ -31,13 +31,6 @@ const game = {
 		const $gamerTag = $('#input-box').val().toUpperCase();
 
 		const $gamerDifficulty = $('#difficultyButton').val().toUpperCase();
-		if($gamerDifficulty == 'hard') {
-			// have the showWord function print a word every second
-		} else if ($gamerDifficulty == 'medium') {
-			// have the showWord function print a word every 2 seconds
-		} else {
-			// have the showWord function print a word every 3 seconds
-		}
 
 		const $h5 = $('h5');
 		const $h4 = $('h4');
@@ -47,10 +40,12 @@ const game = {
 		$('body').css('background-image', 'none')
 		$('body').css('background-color', '#324759');
 		$('.gameSection').show();
+		// this.showWord($gamerDifficulty);
 	},
  
 	startGame() {
 		// the timer will start to count from 0 up
+		const $gamerDifficulty = $('#difficultyButton').val().toUpperCase();
 		const interval = setInterval(() => {
 			this.timer ++;
 			$timer = $('.timer');
@@ -64,8 +59,7 @@ const game = {
 
 		this.unUsedWords = this.words.slice();
 		this.showInfo();
-		// this.showWord($gamerDifficulty);
-		this.showWord();
+		this.showWord($gamerDifficulty);
 	},
 
 	showWord(gamerSpeedChoice) {
@@ -89,11 +83,9 @@ const game = {
 				this.usedWords.push(wordOnScreen);
 				// then show the next word
 				this.showWord();
-				
 				// endgame
 				this.endGame();
 			}
-			// do this every x seconds
 		}, 1000)
 	},
 
@@ -118,10 +110,11 @@ const game = {
 			// correct guess
 			if(userInput == this.usedWords[i]) {
 				const $wordDiv = $(`.wordDiv:contains(${this.usedWords[i]})`);
-				// clear the form w/ jquery
-				// this.addToScore();
+				// add one to the score
 				this.score += 1;
+				// make this viewable to the user 
 				this.showInfo();
+				//
 				$wordDiv.remove(); 
 			} 
 		}
@@ -129,19 +122,19 @@ const game = {
 
 	endGame() {
 		// when one of the divs hit the bottom of the page the game is over
-
 		if($('.wordDiv').length == 15) {
 			// make an h1 tag
 			const $h1 = $('<h1></h1>');
 			// get the div
 			const $div = $('.gameOver')
 			// have the h1 say this
-			$h1.html('YOU ARE DEAD!!!!')
+			$h1.html('YOU ARE DEAD!!!!' +'\n' + 'You have a score of ' + this.score)
 			// append the h1 to the div
 			$div.append($h1);
 			// change the state of the game
-			console.log('The first player has a score of ' + this.score);
 			this.isGameOver	= true;
+
+			console.log('The first player has a score of ' + this.score) + ' with the time period of ' + this.timer;
 		} 
 	}
 }
@@ -181,10 +174,7 @@ $('#valueOfUserInput').on('keypress', function(e) {
 	// let keyCode = (e.keyCode ? e.keyCode : e.which);
 	let keyCode = e.keyCode;
 	const $userInput = $('#valueOfUserInput').val();
-
 	if(keyCode == '13') {
-		// console.log('The enter button is working properly');
-		// console.log($userInput);
 		// invoke the checkWord method
 		game.checkWord($userInput);
 		$('#valueOfUserInput').val('');
