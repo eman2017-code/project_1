@@ -44,8 +44,20 @@ const game = {
 	},
  
 	startGame() {
-		// the timer will start to count from 0 up
+
 		const $gamerDifficulty = $('#difficultyButton').val().toUpperCase();
+		console.log($gamerDifficulty);
+
+		// have the words show up slower if the user chooses easy
+		if($('#difficultyButton').val() == 'easy') {
+			console.log('this is easy mode');
+		} else if ($('#difficultyButton').val() == 'medium') {
+			console.log('this is medium mode');
+		} else {
+			console.log('this is the default hard mode');
+		}
+
+		// the timer will start to count from 0 up
 		const interval = setInterval(() => {
 			this.timer ++;
 			$timer = $('.timer');
@@ -62,7 +74,9 @@ const game = {
 		this.showWord($gamerDifficulty);
 	},
 
-	showWord(gamerSpeedChoice) {
+	showWord() {
+		// get the input from the user 
+
 		setTimeout(() => {
 			// this is my base case
 			if(this.unUsedWords.length ===  0 || this.isGameOver === true) {
@@ -77,7 +91,11 @@ const game = {
 				$div.text(this.unUsedWords[randomWordIndex]).css('display', 'none');
 				// put those divs into the word section so they appear for the user
 				$('.words').append($div);
-				$div.slideDown();
+
+	
+
+				$div.show('fast');
+
 				// remove it from the words array
 				const wordOnScreen = this.unUsedWords.splice(randomWordIndex, 1)[0];
 				this.usedWords.push(wordOnScreen);
@@ -128,13 +146,11 @@ const game = {
 			// get the div
 			const $div = $('.gameOver')
 			// have the h1 say this
-			$h1.html('YOU ARE DEAD!!!!' +'\n' + 'You have a score of ' + this.score)
+			$h1.html('YOU ARE DEAD!!!!' + '\n' + 'You have a score of ' + this.score)
 			// append the h1 to the div
 			$div.append($h1);
 			// change the state of the game
 			this.isGameOver	= true;
-
-			console.log('The first player has a score of ' + this.score) + ' with the time period of ' + this.timer;
 		} 
 	}
 }
