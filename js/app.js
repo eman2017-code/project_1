@@ -1,11 +1,10 @@
 //create game object that will hold the data for the players
 const game = {
 	round: 1, 
-	// lives: 5,
 	timer: null,
 	score: 0,
 	gamerTime: null,
-	isGameOver: false,
+	isGameOver: false, // this is the initial state of the game
 	unUsedWords: [], // copy of the words array
 	usedWords: [], // words that have appeared in the screen
 	words: [
@@ -45,6 +44,9 @@ const game = {
 	},
 
 	//make timer function
+	setTimer() {
+		
+	},
  
 	startGame() {
 
@@ -163,7 +165,7 @@ const game = {
 			$('#valueOfUserInput').hide();
 
 			// make a button with the id start over FUNCTION------
-			
+
 			// const $startOverButton = $('<button id="startOverButton">START OVER?</button>');
 			// $('.startOver').append($startOverButton);
 
