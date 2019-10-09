@@ -47,20 +47,13 @@ const game = {
 	startGame() {
 
 		const $gamerDifficulty = $('#difficultyButton').val().toUpperCase();
-		console.log($gamerDifficulty);
 
 		// have the words show up slower if the user chooses easy
-		console.log(this.gamerTime);
 		if($('#difficultyButton').val() == 'easy') {
 			this.gamerTime += 4000;
-			// console.log(this.gamerTime);
-			// console.log('this is easy mode');
 		} else if ($('#difficultyButton').val() == 'medium') {
-			// console.log('this is medium mode');
 			this.gamerTime += 2000;
-			// console.log(this.gamerTime);
 		} else {
-			// console.log('this is the default hard mode');
 			this.gamerTime += 1000;
 		}
 
@@ -147,7 +140,7 @@ const game = {
 
 	endGame() {
 		// when one of the divs hit the bottom of the page the game is over
-		if($('.wordDiv').length == 15) {
+		if($('.wordDiv').length == 18) {
 			// make an h1 tag
 			const $h1 = $('<h1></h1>');
 			// get the div
@@ -188,13 +181,11 @@ $('.twoPlayerSelection').on('click', () => {
 $('.startButton').on('click', () => {
 	game.startGame();
 	$('.startButton').hide();
-	$('.gamePlayAction').show();
-	$('#valueOfUserInput').show();
+	$('.gamePlayAction').css('display', 'block');
+	$('#userInputSection').css('display', 'block');
 });
 
 $('#valueOfUserInput').on('keypress', function(e) {
-	// keyCode for enter == 13
-	// let keyCode = (e.keyCode ? e.keyCode : e.which);
 	let keyCode = e.keyCode;
 	const $userInput = $('#valueOfUserInput').val();
 	if(keyCode == '13') {
