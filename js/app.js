@@ -45,7 +45,17 @@ const game = {
 
 	//make timer function
 	setTimer() {
-		
+				// the timer will start to count from 0 up
+		const interval = setInterval(() => {
+			this.timer ++;
+			$timer = $('.timer');
+			$timer.html('Timer: ' + this.timer)
+			// console.log(this.timer);
+			// set a duration for 1 second for the timer
+			if($('.wordDiv').length === 15) {
+				clearInterval(interval);
+			}
+		}, 1000);
 	},
  
 	startGame() {
@@ -61,21 +71,10 @@ const game = {
 			this.gamerTime += 1000;
 		}
 
-		// // the timer will start to count from 0 up
-		// const interval = setInterval(() => {
-		// 	this.timer ++;
-		// 	$timer = $('.timer');
-		// 	$timer.html('Timer: ' + this.timer)
-		// 	// console.log(this.timer);
-		// 	// set a duration for 1 second for the timer
-		// 	if($('.wordDiv').length === 15) {
-		// 		clearInterval(interval);
-		// 	}
-		// }, 1000);
-
 		// call timer function in here
 
 		this.unUsedWords = this.words.slice();
+		this.setTimer();
 		this.showInfo();
 		this.showWord($gamerDifficulty);
 	},
