@@ -53,7 +53,7 @@ const game = {
   		'poor','popular','population','porch','port','position','positive','possible','safe','safety','said','sail',
   		'sale','salmon','salt','same','sand','sang','sat','satellites',
   		'satisfied','save','saved','saw','say','scale','scared', 'year','yellow','yes','yesterday','yet','you','young','younger',
-  		'your','yourself','youth','zero','zoo'];
+  		'your','yourself','youth','zero','zoo'
 	],
 
 	collectPlayerInfo() {
