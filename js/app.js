@@ -217,7 +217,7 @@ const game = {
 
 		// get the gameOver heading
 		$('#gameOverHeading').append('<br>' + 'You type: ' + wpm + 'wpm');
-	}
+	},
 }
 
 // EVENT LISTENERS
