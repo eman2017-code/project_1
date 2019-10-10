@@ -23,7 +23,10 @@ const game = {
 		'interesting', 'execution', 'socks', 'teeth', 'chin', 'book', 'books', 'deodorant', 'receive', 
 		'port', 'deck', 'ship', 'acknowledge', 'underwear', 'foot', 'portrait', 'brush', 
 		'realm', 'pound', 'jump', 'caresses', 'suburban', 'city','liquid', 'solid', 'chicago', 
-		'obstinate', 'hardest', 'softest', 'vocabulary', 'apathetic', 'arbitrary', 'arrogate', 'crazy', 'zoo'
+		'obstinate', 'hardest', 'softest', 'vocabulary', 'apathetic', 'arbitrary', 'arrogate', 'crazy', 'zoo', 'transcript', 'other', 
+		'fast', 'patient', 'medical', 'pneumonia', 'good', 'bad', 'kind', 'dictionary', 'job', 'server', 'serve', 'red', 'orange',
+		'yello', 'green', 'listening', 'not', 'that', 'much', 'money', 'random', 'randomly', 'donut', 'all', 'our', 'names', 'eggo',
+		'to', 'hat', 'sorry', 'illusion', 'glasses', 'weird', 'boot', 'bounce', 'buongiorno'
 	],
 
 	collectPlayerInfo() {
@@ -97,8 +100,6 @@ const game = {
 				// put those divs into the word section so they appear for the user
 				$('.words').append($div);
 
-	
-
 				$div.show('fast');
 
 				// remove it from the words array
@@ -163,6 +164,7 @@ const game = {
 			// make the input box go away
 			$('#valueOfUserInput').hide();
 			this.restartGame();
+			// console.log(this.restartGame());
 		} 
 	}, 
 
@@ -171,15 +173,10 @@ const game = {
 		const $startOverButton = $('<button id="startOverButton">START OVER</button>');
 		// put in the div
 		$('.startOver').append($startOverButton);
-
-		if($('startOverButton').on('click', () => {
-			// reset the score to 0
-			this.score = 0;
-			// empty out the word div
-			$('.wordDiv').empty();
-			// show the word again
-			this.showWord();
-		}));
+		this.score = 0;
+		console.log(this.score);
+		// empty out the words that are on the screen
+		$('.wordDiv').empty();
 	}
 }
 
@@ -214,6 +211,10 @@ $('#valueOfUserInput').on('keypress', function(e) {
 		$('#valueOfUserInput').val('');
 	} 
 });
+
+// $('#startOverButton').on('click', () => {
+// 	this.restartGame();
+// });
 
 
 
