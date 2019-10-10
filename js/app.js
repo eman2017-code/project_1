@@ -211,10 +211,20 @@ const game = {
 
 		calculateWordsPerMinute() {
 		// obtain the score
+		const currentScore = this.score;
+
+		// obtain the time that the game ended
+		const currentTime = this.timer;
 
 		// divide by current time
+		const division = currentScore / currentTime;
 
 		// multiply by 60
+		const multiply = division * 60;
+		const wpm = Math.floor(multiply);
+
+		// get the gameOver heading
+		$('#gameOverHeading').append('<br>' + 'You type: ' + wpm + 'wpm');
 	}
 
 }
