@@ -210,9 +210,16 @@ const game = {
 		// make the input for the user to appear again
 		$('#valueOfUserInput').show();
 
-		// have the words show up on the screen
+		// have the words show up on the screen -- this is what the showWord function does 
 
 	},
+
+		calculateWordsPerMinute() {
+		//each word = 1 (score);
+		// divide the user score by 5 to get the total WPM
+		// display on the screen with the game over function
+			// call this function from within the game over function
+	}
 
 }
 
