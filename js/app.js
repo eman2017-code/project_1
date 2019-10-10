@@ -91,6 +91,8 @@ const game = {
 	startGame() {
 		this.reset();
 
+		this.gamerDifficulty = $('#difficultyButton').val()
+
 		// have the words show up slower if the user chooses easy
 		if(this.gamerDifficulty == 'easy') {
 			this.gamerTime += 4000;
