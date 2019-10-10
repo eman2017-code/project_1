@@ -207,25 +207,23 @@ const game = {
 
 	},
 
-	// 	calculateWordsPerMinute() {
-	// 	//each word = 1 (score);
-	// 	// const $userScore = $(this.score);
+	calculateWordsPerMinute() {
+		// obtain the score
+		const currentScore = this.score;
 
-	// 	console.log(this.score);
-	// 	console.log(typeof this.score);
+		// obtain the time that the game ended
+		const currentTime = this.timer;
 
-	// 	// for(let key in $userScore) {
-	// 	// 	console.log($userScore[key]);
-	// 	// }
+		// divide by current time
+		const division = currentScore / currentTime;
 
-	// 	// const wordsPerMinute = $userScore / 5;
-	// 	// console.log(wordsPerMinute);
+		// multiply by 60
+		const multiply = division * 60;
+		const wpm = Math.floor(multiply);
 
-	// 	// divide the user score by 5 to get the total WPM
-	// 	// display on the screen with the game over function
-	// 		// call this function from within the game over function
-	// }
-
+		// get the gameOver heading
+		$('#gameOverHeading').append('<br>' + 'You type: ' + wpm + 'wpm');
+	}
 }
 
 // EVENT LISTENERS
