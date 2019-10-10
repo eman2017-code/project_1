@@ -90,13 +90,8 @@ const game = {
  
 	startGame() {
 		this.reset();
-		console.log("we reset the stuff");
 
 		// have the words show up slower if the user chooses easy
-		console.log("this is gamerDifficulty prior to resetting");
-		console.log(this.gamerDifficulty);
-		console.log("this is gamerTime prior to resetting");
-		console.log(this.gamerTime);
 		if(this.gamerDifficulty == 'easy') {
 			this.gamerTime += 4000;
 		} else if (this.gamerDifficulty == 'medium') {
@@ -105,20 +100,13 @@ const game = {
 			this.gamerTime += 1000;
 		}
 
-		console.log("this is gamerDifficulty after resetting");
-		console.log(this.gamerDifficulty);
-		console.log("this is gamerTime after resetting");
-		console.log(this.gamerTime);
-
 		this.setTimer();
 		this.showInfo();
-		console.log("about to start showing words");
 		this.showWord();
 	},
 
 	showWord() {
 		// get the input from the user 
-		console.log("inside showWord, prepping timer");
 		setTimeout(() => {
 			// this is my base case
 			if(this.unUsedWords.length ===  0 || this.isGameOver === true) {
@@ -148,17 +136,9 @@ const game = {
 	},
 
 	showInfo() {
-		// the user will be able to see the amount of lives they have 
-		$lives = $('.lives');
-		$lives.html('Lives: ' + this.lives);
-		if($lives <= 0) {
-			// console.log('GAME OVER');
-		}
-
 		// the user will be able to see their score
 		$score = $('.score');
 		$score.html('Score: ' + this.score);
-
 	},
 
 	// this function will pass in the user's input
@@ -229,11 +209,17 @@ const game = {
 
 	// 	calculateWordsPerMinute() {
 	// 	//each word = 1 (score);
-	// 	const $userScore = $(this.score);
-	// 	console.log($userScore);
-	// 	const wordsPerMinute = $userScore / 5;
-	// 	console.log(typeof $userScore);
-	// 	console.log(wordsPerMinute);
+	// 	// const $userScore = $(this.score);
+
+	// 	console.log(this.score);
+	// 	console.log(typeof this.score);
+
+	// 	// for(let key in $userScore) {
+	// 	// 	console.log($userScore[key]);
+	// 	// }
+
+	// 	// const wordsPerMinute = $userScore / 5;
+	// 	// console.log(wordsPerMinute);
 
 	// 	// divide the user score by 5 to get the total WPM
 	// 	// display on the screen with the game over function
