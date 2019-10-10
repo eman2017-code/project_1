@@ -4,6 +4,7 @@ const game = {
 	timer: null,
 	score: 0,
 	gamerTime: null,
+	gamerDifficulty: null,
 	isGameOver: false, // this is the initial state of the game
 	unUsedWords: [], // copy of the words array
 	usedWords: [], // words that have appeared in the screen
@@ -60,12 +61,12 @@ const game = {
 		//collect the level selected and chosen gamertag of the user
 		const $gamerTag = $('#input-box').val().toUpperCase();
 
-		const $gamerDifficulty = $('#difficultyButton').val().toUpperCase();
+		this.gamerDifficulty = $('#difficultyButton').val().toUpperCase();
 
 		const $h5 = $('h5');
 		const $h4 = $('h4');
 		$h5.html('Welcome: ' + $gamerTag);
-		$h4.html('Your Selected Difficulty: ' + $gamerDifficulty);
+		$h4.html('Your Selected Difficulty: ' + this.gamerDifficulty);
 		$('form').hide();
 		$('body').css('background-image', 'none')
 		$('body').css('background-color', '#324759');
@@ -89,26 +90,35 @@ const game = {
  
 	startGame() {
 		this.reset();
-
-		const $gamerDifficulty = $('#difficultyButton').val().toUpperCase();
+		console.log("we reset the stuff");
 
 		// have the words show up slower if the user chooses easy
-		if($('#difficultyButton').val() == 'easy') {
+		console.log("this is gamerDifficulty prior to resetting");
+		console.log(this.gamerDifficulty);
+		console.log("this is gamerTime prior to resetting");
+		console.log(this.gamerTime);
+		if(this.gamerDifficulty == 'easy') {
 			this.gamerTime += 4000;
-		} else if ($('#difficultyButton').val() == 'medium') {
+		} else if (this.gamerDifficulty == 'medium') {
 			this.gamerTime += 2000;
 		} else {
 			this.gamerTime += 1000;
 		}
 
+		console.log("this is gamerDifficulty after resetting");
+		console.log(this.gamerDifficulty);
+		console.log("this is gamerTime after resetting");
+		console.log(this.gamerTime);
+
 		this.setTimer();
 		this.showInfo();
-		this.showWord($gamerDifficulty);
+		console.log("about to start showing words");
+		this.showWord();
 	},
 
 	showWord() {
 		// get the input from the user 
-
+		console.log("inside showWord, prepping timer");
 		setTimeout(() => {
 			// this is my base case
 			if(this.unUsedWords.length ===  0 || this.isGameOver === true) {
@@ -188,6 +198,7 @@ const game = {
 			// make the input box go away
 			$('#valueOfUserInput').hide();
 			$('.startOver').show();
+			this.calculateWordsPerMinute();
 		} 
 	}, 
 
@@ -211,15 +222,23 @@ const game = {
 		$('#valueOfUserInput').show();
 
 		// have the words show up on the screen -- this is what the showWord function does 
+		this.gamerTime = null;
+		this.isGameOver = false;
 
 	},
 
-		calculateWordsPerMinute() {
-		//each word = 1 (score);
-		// divide the user score by 5 to get the total WPM
-		// display on the screen with the game over function
-			// call this function from within the game over function
-	}
+	// 	calculateWordsPerMinute() {
+	// 	//each word = 1 (score);
+	// 	const $userScore = $(this.score);
+	// 	console.log($userScore);
+	// 	const wordsPerMinute = $userScore / 5;
+	// 	console.log(typeof $userScore);
+	// 	console.log(wordsPerMinute);
+
+	// 	// divide the user score by 5 to get the total WPM
+	// 	// display on the screen with the game over function
+	// 		// call this function from within the game over function
+	// }
 
 }
 
