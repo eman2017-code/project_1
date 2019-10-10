@@ -186,9 +186,10 @@ h5 {
 	margin-left: auto;
 }
 
-li {
-	margin: 6% 0;
+.startOver {
+	display: none;
 }
+
 
 #startOverButton {
 	background-color: #0D0D0D;
@@ -201,10 +202,14 @@ li {
     text-align: center;
 }
 
-.globalLeaderBoard {
+/*.globalLeaderBoard {
 	display: none;
 }
+*/
 
+/*li {
+	margin: 6% 0;
+}*/
 
 
 

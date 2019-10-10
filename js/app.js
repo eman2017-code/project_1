@@ -82,13 +82,14 @@ const game = {
 			$timer.html('Timer: ' + this.timer)
 			// console.log(this.timer);
 			// set a duration for 1 second for the timer
-			if($('.wordDiv').length === 15) {
+			if($('.wordDiv').length >= 15) {
 				clearInterval(interval);
 			}
 		}, 1000);
 	},
  
 	startGame() {
+		this.reset();
 
 		const $gamerDifficulty = $('#difficultyButton').val().toUpperCase();
 
@@ -101,12 +102,11 @@ const game = {
 			this.gamerTime += 1000;
 		}
 
-		// call timer function in here
-
-		this.unUsedWords = this.words.slice();
+		// this.unUsedWords = this.words.slice();
 		this.setTimer();
 		this.showInfo();
 		this.showWord($gamerDifficulty);
+		// console.log('this is working');
 	},
 
 	showWord() {
@@ -178,7 +178,7 @@ const game = {
 		// when one of the divs hit the bottom of the page the game is over
 		if($('.wordDiv').length == 17) {
 			// make an h1 tag
-			const $h1 = $('<h1></h1>');
+			const $h1 = $('<h1 id="gameOverHeading"></h1>');
 			// get the div
 			const $div = $('.gameOver')
 			// have the h1 say this
@@ -190,20 +190,25 @@ const game = {
 
 			// make the input box go away
 			$('#valueOfUserInput').hide();
-			this.restartGame();
-			// console.log(this.restartGame());
+			$('.startOver').show();
 		} 
 	}, 
 
-	restartGame() {
-		// make a button with the id startOver
-		const $startOverButton = $('<button id="startOverButton">START OVER</button>');
-		// put in the div
-		$('.startOver').append($startOverButton);
+	reset() {
+		this.unUsedWords = this.words.slice();
+
+		// set the score to 0
 		this.score = 0;
-		console.log(this.score);
-		// empty out the words that are on the screen
-		$('.wordDiv').empty();
+		this.timer = null;
+		// clear the words that are on the screen
+		$('.words').empty();
+		console.log($('.words'));
+		$('#gameOverHeading').hide();
+		
+		
+
+		// make the words start to appear on the screen again
+		// this.starGame();
 	}
 }
 
@@ -239,9 +244,10 @@ $('#valueOfUserInput').on('keypress', function(e) {
 	} 
 });
 
-// $('#startOverButton').on('click', () => {
-// 	this.restartGame();
-// });
+$('#startOverButton').on('click', () => {
+	console.log('this button works');
+	game.startGame();
+});
 
 
 
