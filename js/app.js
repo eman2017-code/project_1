@@ -163,7 +163,6 @@ const game = {
 	endGame() {
 		// get the gamerTag the user entered originally 
 		const $gamerTag = $('#input-box').val();
-
 		// when one of the divs hit the bottom of the page the game is over
 		if($('.wordDiv').length == 17) {
 			// make an h1 tag
@@ -176,10 +175,10 @@ const game = {
 			$div.append($h1);
 			// change the state of the game
 			this.isGameOver	= true;
-
 			// make the input box go away
 			$('#valueOfUserInput').hide();
 			$('.startOver').show();
+			$('.leaderboard').show();
 			this.calculateWordsPerMinute();
 		} 
 	}, 
@@ -187,26 +186,19 @@ const game = {
 	reset() {
 		// initially make a copy of the master list
 		this.unUsedWords = this.words.slice();
-
 		// reset the score
 		this.score = 0;
-
 		// restart the timer
 		this.timer = null;
-
 		// clear the words that are on the screen
 		$('.words').empty();
-
 		// have the gameOverHeading removed from screen
 		$('#gameOverHeading').remove();
-
 		// make the input for the user to appear again
 		$('#valueOfUserInput').show();
-
 		// have the words show up on the screen -- this is what the showWord function does 
 		this.gamerTime = null;
 		this.isGameOver = false;
-
 	},
 
 	calculateWordsPerMinute() {
@@ -263,6 +255,12 @@ $('#valueOfUserInput').on('keypress', function(e) {
 $('#startOverButton').on('click', () => {
 	console.log('this button works');
 	game.startGame();
+});
+
+$('#globalLeaderBoardButton').on('click', () => {
+	$('.globalLeaderBoard').show();
+	$('#globalLeaderBoardButton').hide();
+	$('.gameSection').hide();
 });
 
 
