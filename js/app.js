@@ -80,7 +80,6 @@ const game = {
 			$timer = $('.timer');
 			this.timer ++;
 			$timer.html('Timer: ' + this.timer)
-			// console.log(this.timer);
 			// set a duration for 1 second for the timer
 			if($('.wordDiv').length >= 15) {
 				clearInterval(interval);
@@ -102,11 +101,9 @@ const game = {
 			this.gamerTime += 1000;
 		}
 
-		// this.unUsedWords = this.words.slice();
 		this.setTimer();
 		this.showInfo();
 		this.showWord($gamerDifficulty);
-		// console.log('this is working');
 	},
 
 	showWord() {
@@ -195,21 +192,28 @@ const game = {
 	}, 
 
 	reset() {
+		// initially make a copy of the master list
 		this.unUsedWords = this.words.slice();
 
-		// set the score to 0
+		// reset the score
 		this.score = 0;
+
+		// restart the timer
 		this.timer = null;
+
 		// clear the words that are on the screen
 		$('.words').empty();
-		console.log($('.words'));
-		$('#gameOverHeading').hide();
-		
-		
 
-		// make the words start to appear on the screen again
-		// this.starGame();
-	}
+		// have the gameOverHeading removed from screen
+		$('#gameOverHeading').remove();
+
+		// make the input for the user to appear again
+		$('#valueOfUserInput').show();
+
+		// have the words show up on the screen
+
+	},
+
 }
 
 // EVENT LISTENERS
