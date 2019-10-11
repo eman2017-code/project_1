@@ -223,6 +223,7 @@ $('.startButton').on('click', () => {
 	$('#userInputSection').css('display', 'block');
 });
 
+// obtaining input from user
 $('#valueOfUserInput').on('keypress', function(e) {
 	let keyCode = e.keyCode;
 	const $userInput = $('#valueOfUserInput').val();
@@ -233,6 +234,7 @@ $('#valueOfUserInput').on('keypress', function(e) {
 	} 
 });
 
+// restart the game
 $('#startOverButton').on('click', () => {
 	console.log('this button works');
 	game.startGame();
