@@ -203,36 +203,6 @@ h5 {
     display: inline-block;
 }
 
-.leaderboard {
-	display: none;
-}
-
-#globalLeaderBoardButton {
-	background-color: #0D0D0D;
-    color: #F2F2F2;
-    padding: 2%;
-    margin: 0.5%;
-    width: 10%;
-    height: 25%;
-    position: sticky;
-    /*float: right;*/
-    text-align: center;
-    display: inline-block;
-}
-
-.globalLeaderBoard {
-	display: none;
-}
-
-#globalLeaderH1 {
-	width: 40%;
-	height: 10%;
-	background-color: #A6A6A6;
-	color: #0D0D0D;
-	margin-right: auto;
-	margin-left: auto;
-}
-
 
 
 

@@ -257,12 +257,6 @@ $('#startOverButton').on('click', () => {
 	game.startGame();
 });
 
-$('#globalLeaderBoardButton').on('click', () => {
-	$('.globalLeaderBoard').show();
-	$('#globalLeaderBoardButton').hide();
-	$('.gameSection').hide();
-});
-
 
 
 
