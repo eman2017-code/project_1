@@ -22,6 +22,7 @@
 - Have the user choose a character that represents them and as they type the words, a laser shoots out towards the word that -   they are typing and explodes when they have typed the word correctly
 - The leaderboard section that shows how they performed against other players that have played the game
 - Be able to have the user move their character around and have the words try and “attack” them 
+- Let user choose the language they would like to type in 
 
 ### WIREFRAMES:
 1. https://wireframe.cc/q0oGkp
